@@ -2,7 +2,7 @@
 
   <div>
     <b-btn-group>
-      <b-button variant="secondary">Wild Card</b-button>
+      <b-button variant="secondary" @select="updateVar(0)">Wild Card</b-button>
       <b-button variant="secondary">Division</b-button>
       <b-button variant="secondary">Conference</b-button>
       <b-button variant="secondary" autofocus>League</b-button>
@@ -11,10 +11,8 @@
 
     </league-standings>
 <conference-standings v-bind:records="records">
-
 </conference-standings>
   </div>
-
 </template>
 
 <script>
@@ -29,6 +27,7 @@
         components: {ConferenceStandings, LeagueStandings},
         data(){
             return{
+              standingType: 3
             }
         }
     }
