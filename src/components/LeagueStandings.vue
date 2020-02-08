@@ -1,7 +1,7 @@
 <template>
     <div>
         <h5>
-            {{records}}
+            {{records[1].data}}
         </h5>
     </div>
 </template>
