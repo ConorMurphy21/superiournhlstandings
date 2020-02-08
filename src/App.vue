@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <Standings>
+    <Standings system="3-Point-Game">
 
     </Standings>
   </div>
@@ -10,6 +10,7 @@
 <script>
 import Standings from './components/Standings.vue';
 import axios from 'axios';
+
 
 export default {
   name: 'App',
