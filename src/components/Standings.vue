@@ -1,9 +1,6 @@
 <template>
 
   <div>
-    <h5>
-      {{records[5]}}
-    </h5>
     <b-btn-group>
       <b-button variant="secondary">Wild Card</b-button>
       <b-button variant="secondary">Division</b-button>
