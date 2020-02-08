@@ -1,9 +1,11 @@
 <template>
-    <div>
-        <h5>
-            {{records}}
-        </h5>
-    </div>
+  <div>
+
+   <li v-for="item in records" v-bind:key="item" v-bind:item="item">
+       {{item.team.name}}
+   </li>
+
+  </div>
 </template>
 
 <script>
