@@ -12,6 +12,7 @@
         },
         methods: {
             confRecords: function (conf) {
+                //Will use this method to sort
                 let conferenceRecords = [];
                 for (let i = 0; i < this.records.length; i++) {
                     if(this.records[i].conference)
