@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
     <Standings system="3-Point-Game" v-bind:records="records">
 
     </Standings>

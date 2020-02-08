@@ -6,9 +6,12 @@
       <b-button variant="secondary">Conference</b-button>
       <b-button variant="secondary" autofocus>League</b-button>
     </b-btn-group>
-    <league-standings records="{{records}}">
+    <league-standings>
 
     </league-standings>
+    <h5>
+      {{records}}
+    </h5>
   </div>
 </template>
 
