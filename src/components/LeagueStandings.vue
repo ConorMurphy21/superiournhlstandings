@@ -1,10 +1,18 @@
 <template>
-    
+    <div>
+
+    </div>
 </template>
 
 <script>
     export default {
-        name: "LeagueStandings"
+        name: "LeagueStandings",
+        props: {
+            records: []
+        },
+        computed:{
+
+        }
     }
 </script>
 
