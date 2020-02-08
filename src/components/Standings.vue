@@ -11,7 +11,7 @@
 
     </league-standings>
 <conference-standings v-bind:records="records">
-
+</conference-standings>
   </div>
 </template>
 
