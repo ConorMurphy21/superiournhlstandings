@@ -28,7 +28,7 @@
           </tr>
 
           <tr v-for="item in teamOnlyRecords" v-bind:key="item" v-bind:item="item" class="bg-dark text-white">
-              <td><img src="../assets/washington_capitals.png" style="width:50px; height:50px"></td>
+              <td><img src=item.whatThePathis()  style="width:50px; height:50px"></td>
               <td>{{item.team.name}}</td>
               <td>{{item.points}}</td>
               <td>{{item.leagueRecord.wins}}</td>
@@ -67,6 +67,13 @@
                     }
                 }
                 return teamOnlyRecords;
+            }
+        },
+        methods:{
+            img_path: {
+            whatThePathis(){
+                return "../assets/" + this.team.id + ".png"
+                }
             }
         }
     }
