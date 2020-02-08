@@ -1,12 +1,19 @@
 <template>
     <div>
+        <league-standings v-bind:records="easternRecords">
 
+        </league-standings>
+        <league-standings v-bind:records="westernRecords">
+
+        </league-standings>
     </div>
 </template>
 
 <script>
+    import LeagueStandings from "./LeagueStandings";
     export default {
         name: "ConferenceStandings",
+        components: {LeagueStandings},
         props: {
             records: []
         },
@@ -15,13 +22,11 @@
                 //Will use this method to sort
                 let conferenceRecords = [];
                 for (let i = 0; i < this.records.length; i++) {
-                    if(this.records[i].conference)
-                    for (let j = 0; j < this.records[i].teamRecords.length; j++) {
-
-                        conferenceRecords.push(this.records[i].teamRecords[j]);
+                    if(this.records[i].conference.name === conf) {
+                        conferenceRecords.push(this.records[i]);
                     }
                 }
-                return conf;
+                return conferenceRecords;
             }
         },
         computed:{
