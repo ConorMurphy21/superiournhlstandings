@@ -10,7 +10,7 @@
 
     </league-standings>
     <h5>
-      {{records}}
+      {{leagueRecords}}
     </h5>
   </div>
 </template>
@@ -26,8 +26,18 @@
         components: {LeagueStandings},
         data(){
             return{
-              val: "test"
             }
+        },
+        computed: {
+          leagueRecords() {
+           let leagueRecords = [];
+            for(let i = 0;i < this.records.length; i++ ) {
+              for(let j = 0; j < this.records[i].teamRecords.length; j++) {
+                leagueRecords.push(this.records[i].teamRecords[j]);
+              }
+            }
+            return leagueRecords;
+          }
         }
 
     }
