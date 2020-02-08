@@ -1,6 +1,8 @@
 <template>
     <div>
-
+        <h5>
+            {{records}}
+        </h5>
     </div>
 </template>
 

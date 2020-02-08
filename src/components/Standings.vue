@@ -9,9 +9,7 @@
     <league-standings  v-bind:records="leagueRecords">
 
     </league-standings>
-    <h5>
-      {{leagueRecords}}
-    </h5>
+
   </div>
 </template>
 
@@ -31,16 +29,6 @@
         computed: {
           leagueRecords() {
            let leagueRecords = [];
-            for(let i = 0;i < this.records.length; i++ ) {
-              for(let j = 0; j < this.records[i].teamRecords.length; j++) {
-                leagueRecords.push(this.records[i].teamRecords[j]);
-              }
-            }
-            return leagueRecords;
-          },
-          conferenceRecords() {
-            let easternRecords = [];
-            let easternRecords = [];
             for(let i = 0;i < this.records.length; i++ ) {
               for(let j = 0; j < this.records[i].teamRecords.length; j++) {
                 leagueRecords.push(this.records[i].teamRecords[j]);
