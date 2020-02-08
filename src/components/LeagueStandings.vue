@@ -1,55 +1,55 @@
 <template>
-  <div>
+    <div>
 
-      <table class="table table-light table-striped">
-      <tr>
-          <th COLSPAN="17">
-              <h1 style="text-align: center" class="font-weight-bold">NHL Standings</h1>
-          </th>
-      </tr>
+        <table class="table table-light table-striped">
+            <tr>
+                <th COLSPAN="17">
+                    <h1 style="text-align: center" class="font-weight-bold">NHL Standings</h1>
+                </th>
+            </tr>
 
-          <tr class="bg-dark text-white">
-              <td colspan="2">National Hockey League</td>
-              <td>GP</td>
-              <td>W</td>
-              <td>L</td>
-              <td>OT</td>
-              <td>PTS</td>
-              <td>RW</td>
-              <td>ROW</td>
-              <td>GF</td>
-              <td>GA</td>
-              <td>DIFF</td>
-              <td>HOME</td>
-              <td>AWAY</td>
-              <td>S/O</td>
-              <td>L10</td>
-              <td>STRK</td>
-          </tr>
+            <tr class="bg-dark text-white">
+                <td colspan="2">National Hockey League</td>
+                <td>{{headers[0]}}</td>
+                <td>W</td>
+                <td>L</td>
+                <td>OT</td>
+                <td>PTS</td>
+                <td>RW</td>
+                <td>ROW</td>
+                <td>GF</td>
+                <td>GA</td>
+                <td>DIFF</td>
+                <td>HOME</td>
+                <td>AWAY</td>
+                <td>S/O</td>
+                <td>L10</td>
+                <td>STRK</td>
+            </tr>
 
-          <tr v-for="item in records" v-bind:key="item" v-bind:item="item" class="bg-dark text-white">
-              <td><img src="../assets/washington_capitals.png" style="width:50px; height:50px"></td>
-              <td>{{item.team.name}}</td>
-              <td>{{item.points}}</td>
-              <td>{{item.leagueRecord.wins}}</td>
-              <td>{{item.leagueRecord.losses}}</td>
-              <td>{{}}</td>
-              <td>PTS</td>
-              <td>RW</td>
-              <td>ROW</td>
-              <td>GF</td>
-              <td>GA</td>
-              <td>DIFF</td>
-              <td>HOME</td>
-              <td>AWAY</td>
-              <td>S/O</td>
-              <td>L10</td>
-              <td>STRK</td>
-          </tr>
+            <tr v-for="item in records" v-bind:key="item" v-bind:item="item" class="bg-dark text-white">
+                <td><img src="../assets/washington_capitals.png" style="width:50px; height:50px"></td>
+                <td>{{item.team.name}}</td>
+                <td>{{item.points}}</td>
+                <td>{{item.leagueRecord.wins}}</td>
+                <td>{{item.leagueRecord.losses}}</td>
+                <td>{{}}</td>
+                <td>PTS</td>
+                <td>RW</td>
+                <td>ROW</td>
+                <td>GF</td>
+                <td>GA</td>
+                <td>DIFF</td>
+                <td>HOME</td>
+                <td>AWAY</td>
+                <td>S/O</td>
+                <td>L10</td>
+                <td>STRK</td>
+            </tr>
 
-      </table>
+        </table>
 
-  </div>
+    </div>
 </template>
 
 <script>
@@ -57,6 +57,11 @@
         name: "LeagueStandings",
         props: {
             records: []
+        },
+        data(){
+            return{
+                headers: ['Name', 'Points', 'Wins', 'Losses', 'OL']
+            }
         },
         computed:{
 
