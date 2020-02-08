@@ -8,12 +8,24 @@
 </template>
 
 <script>
-import Standings from './components/Standings.vue'
+import Standings from './components/Standings.vue';
+import axios from 'axios';
 
 export default {
   name: 'App',
   components: {
       Standings
+  },
+  // Fetches posts when the component is created
+  created() {
+    axios.get(`https://statsapi.web.nhl.com/api/v1/standings`)
+            .then(response => {
+              // JSON responses are automatically parsed.
+              this.standings = response.data.records
+            })
+            .catch(e => {
+              this.errors.push(e)
+            })
   }
 }
 
