@@ -56,6 +56,7 @@
                         teamOnlyRecords.push(this.records[i].teamRecords[j]);
                     }
                 }
+                teamOnlyRecords.sort(function(a,b){return b.points - a.points});
                 return teamOnlyRecords;
             }
         }
