@@ -1,14 +1,22 @@
 <template>
     <div>
-    <input v-model="message" placeholder="Points per Win">
-    <input v-model="message" placeholder="Points per Loss">
-    <input v-model="message" placeholder="Points per OT Loss">
+        <pre>
+    <input v-model="m1" placeholder="Points per Win"><br>
+    <input v-model="m2" placeholder="Points per Loss"><br>
+    <input v-model="m3" placeholder="Points per OT Loss">
+
+            <b-button>Submit!</b-button>
+        </pre>
+
+        <b-button variant="submit!"></b-button>
+
     </div>
 </template>
 
 <script>
     export default {
         name: "inputScores"
+
     }
 </script>
 

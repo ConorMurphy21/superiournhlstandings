@@ -27,14 +27,14 @@
     import LeagueStandings from "@/components/LeagueStandings";
     import ConferenceStandings from "./ConferenceStandings";
     import DivisionStandings from "./DivisionStandings";
-    import Input_scores from "./inputScores";
+    import InputScores from "./inputScores";
     export default {
         name: "Standings",
         props:{
             system: String,
             records: Array
         },
-        components: {Input_scores, DivisionStandings, ConferenceStandings, LeagueStandings},
+        components: {InputScores, DivisionStandings, ConferenceStandings, LeagueStandings},
         data() {
           return {
             standingType: 3
