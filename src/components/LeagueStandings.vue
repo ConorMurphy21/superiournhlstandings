@@ -23,17 +23,6 @@
               <td>{{item.wins}}</td>
               <td>{{item.losses}}</td>
               <td>{{item.img}}</td>
-              <td>PTS</td>
-              <td>RW</td>
-              <td>ROW</td>
-              <td>GF</td>
-              <td>GA</td>
-              <td>DIFF</td>
-              <td>HOME</td>
-              <td>AWAY</td>
-              <td>S/O</td>
-              <td>L10</td>
-              <td>STRK</td>
           </tr>
 
       </table>
