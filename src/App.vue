@@ -1,10 +1,8 @@
 <template>
   <div id="app">
-    <h7>
-      <inputScores></inputScores>
-    </h7>
+    <inputScores></inputScores>
 
-    <Standings system="3-Point-Game" v-bind:records="records">
+    <Standings v-bind:records="records">
 
     </Standings>
   </div>
