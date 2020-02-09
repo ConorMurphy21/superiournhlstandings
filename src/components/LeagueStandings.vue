@@ -10,10 +10,6 @@
 
           <tr class="bg-dark text-white">
               <td colspan="2">National Hockey League</td>
-              <td>{{test[0]}}</td>
-              <td>{{test[1]}}</td>
-              <td>{{test[2]}}</td>
-              <td>{{test[3]}}</td>
           </tr>
 
           <tr v-for="item in teamOnlyRecords" v-bind:key="item" v-bind:item="item" class="bg-dark text-white">
@@ -35,11 +31,18 @@
         name: "LeagueStandings",
         props: {
             records: [],
-            sortOrder: []
+            sortOrder: [],
+            display: []
         },
         data(){
           return{
-              test: ["Points", "Wins", "Loss", "OT"]
+              sortOrder2: ["points", "wins", "regulationWins"],
+              display2: ["gamesPlayed", "points", "wins", "losses", "overtime"],
+              headerMap: {
+                  gamesPlayed: "GP",
+                  wins: "W",
+                  losses: "L"
+              }
           }
         },
         created(){
@@ -56,13 +59,6 @@
                 return teamOnlyRecords;
             }
         },
-        methods:{
-            img_path: {
-            whatThePathis(){
-                return "../assets/" + this.team.id + ".png"
-                }
-            }
-        }
     }
 </script>
 
