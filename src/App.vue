@@ -20,14 +20,12 @@
   export default {
     name: 'App',
     components: {
-
       InputScores,
       Standings
     },
     data(){
       return{
-        records: [],
-        headMap: ["GP", "W", "L","OT","RW","OW","GA","GF","P"]
+        records: []
       }
     },
     // Fetches posts when the component is created
@@ -52,7 +50,6 @@
               })
     }
   }
-
 </script>
 
 <style>
