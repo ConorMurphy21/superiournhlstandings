@@ -10,21 +10,10 @@
 
           <tr class="bg-dark text-white">
               <td colspan="2">National Hockey League</td>
-              <td>GP</td>
-              <td>W</td>
-              <td>L</td>
-              <td>OT</td>
-              <td>PTS</td>
-              <td>RW</td>
-              <td>ROW</td>
-              <td>GF</td>
-              <td>GA</td>
-              <td>DIFF</td>
-              <td>HOME</td>
-              <td>AWAY</td>
-              <td>S/O</td>
-              <td>L10</td>
-              <td>STRK</td>
+              <td>{{test[0]}}</td>
+              <td>{{test[1]}}</td>
+              <td>{{test[2]}}</td>
+              <td>{{test[3]}}</td>
           </tr>
 
           <tr v-for="item in teamOnlyRecords" v-bind:key="item" v-bind:item="item" class="bg-dark text-white">
@@ -58,6 +47,11 @@
         props: {
             records: []
         },
+        data(){
+          return{
+              test: ["Points", "Wins", "Loss", "LR"]
+          }
+        },
         computed: {
             teamOnlyRecords() {
                 let teamOnlyRecords = [];
@@ -67,6 +61,13 @@
                     }
                 }
                 return teamOnlyRecords;
+            }
+        },
+        methods:{
+            img_path: {
+            whatThePathis(){
+                return "../assets/" + this.team.id + ".png"
+                }
             }
         }
     }
