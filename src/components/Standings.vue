@@ -19,7 +19,6 @@
     <division-standings v-else-if="standingType === 3" v-bind:records="recordRevamp">
 
     </division-standings>
-
   </div>
 </template>
 
