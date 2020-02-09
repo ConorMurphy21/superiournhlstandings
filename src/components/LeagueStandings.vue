@@ -34,7 +34,8 @@
         },
         data(){
           return{
-              sortOrder2: ["points", "wins", "regulationWins"],
+              sortOrder2: ["points", "wins", "regulationWins", "losses"],
+              sortInOrDec2: [0,0,0,1],
               display2: ["gamesPlayed", "points", "wins", "losses", "ot"],
               headerMap: {
                   gamesPlayed: "GP",
@@ -57,6 +58,7 @@
                 let teamOnlyRecords = [];
                 for(let i = 0;i < this.records.length; i++ ) {
                     for(let j = 0; j < this.records[i].teamRecords.length; j++) {
+
                         teamOnlyRecords.push(this.records[i].teamRecords[j]);
                     }
                 }
