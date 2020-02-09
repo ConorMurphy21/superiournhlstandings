@@ -10,41 +10,13 @@
 
           <tr class="bg-dark text-white">
               <td colspan="2">National Hockey League</td>
-              <td>GP</td>
-              <td>W</td>
-              <td>L</td>
-              <td>OT</td>
-              <td>PTS</td>
-              <td>RW</td>
-              <td>ROW</td>
-              <td>GF</td>
-              <td>GA</td>
-              <td>DIFF</td>
-              <td>HOME</td>
-              <td>AWAY</td>
-              <td>S/O</td>
-              <td>L10</td>
-              <td>STRK</td>
+              <td v-for="disp in display2" v-bind:key="disp" v-bind:i="disp">{{headerMap[disp]}}</td>
           </tr>
 
           <tr v-for="item in teamOnlyRecords" v-bind:key="item" v-bind:item="item" class="bg-dark text-white">
-              <td><img v-bind:src=img_path(item.team.id)  style="width:50px; height:50px"></td>
-              <td>{{item.team.name}}</td>
-              <td>{{item.points}}</td>
-              <td>{{item.leagueRecord.wins}}</td>
-              <td>{{item.leagueRecord.losses}}</td>
-              <td>{{}}</td>
-              <td>PTS</td>
-              <td>RW</td>
-              <td>ROW</td>
-              <td>GF</td>
-              <td>GA</td>
-              <td>DIFF</td>
-              <td>HOME</td>
-              <td>AWAY</td>
-              <td>S/O</td>
-              <td>L10</td>
-              <td>STRK</td>
+              <td><img :src="item.img" style="width:50px; height:50px"></td>
+              <td>{{item["name"]}}</td>
+              <td v-for="it in display2" v-bind:key="it" v-bind:it="it" v-bind:x="item">{{item[it]}}</td>
           </tr>
 
       </table>
@@ -56,7 +28,25 @@
     export default {
         name: "LeagueStandings",
         props: {
-            records: []
+            records: [],
+            sortOrder: [],
+            display: []
+        },
+        data(){
+          return{
+              sortOrder2: ["points", "wins", "regulationWins"],
+              display2: ["gamesPlayed", "points", "wins", "losses", "ot"],
+              headerMap: {
+                  gamesPlayed: "GP",
+                  wins: "W",
+                  losses: "L",
+                  ot: "OT",
+                  points: "points"
+              }
+          }
+        },
+        created(){
+
         },
         computed: {
             teamOnlyRecords() {
@@ -67,11 +57,6 @@
                     }
                 }
                 return teamOnlyRecords;
-            }
-        },
-        methods: {
-            img_path: function(id) {
-                return "../assets/" + id + ".png"
             }
         }
     }
