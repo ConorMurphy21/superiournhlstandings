@@ -1,9 +1,9 @@
 <template>
     <div>
-        <league-standings v-bind:records="easternRecords">
+        <league-standings v-bind:records="easternRecords" name="Eastern">
 
         </league-standings>
-        <league-standings v-bind:records="westernRecords">
+        <league-standings v-bind:records="westernRecords" name="Western">
 
         </league-standings>
     </div>
