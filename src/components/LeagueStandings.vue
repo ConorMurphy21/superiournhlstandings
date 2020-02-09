@@ -17,12 +17,12 @@
           </tr>
 
           <tr v-for="item in teamOnlyRecords" v-bind:key="item" v-bind:item="item" class="bg-dark text-white">
-              <td><img :src="item" style="width:50px; height:50px"></td>
+              <td><img :src="item.img" style="width:50px; height:50px"></td>
               <td>{{item["name"]}}</td>
               <td>{{item.points}}</td>
               <td>{{item.wins}}</td>
               <td>{{item.losses}}</td>
-              <td>{{item.img}}</td>
+              <td>{{item.ot}}</td>
           </tr>
 
       </table>
@@ -34,12 +34,16 @@
     export default {
         name: "LeagueStandings",
         props: {
-            records: []
+            records: [],
+            sortOrder: []
         },
         data(){
           return{
-              test: ["Points", "Wins", "Loss", "LR"]
+              test: ["Points", "Wins", "Loss", "OT"]
           }
+        },
+        created(){
+
         },
         computed: {
             teamOnlyRecords() {
