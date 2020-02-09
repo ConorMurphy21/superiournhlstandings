@@ -9,7 +9,7 @@
         <league-standings v-bind:records="centralRecords" name="Central">
 
         </league-standings>
-        <league-standings v-bind:records="PacificRecords" name="Pacific">
+        <league-standings v-bind:records="pacificRecords" name="Pacific">
 
         </league-standings>
     </div>
