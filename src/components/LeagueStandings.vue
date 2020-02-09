@@ -31,8 +31,8 @@
               <td><img :src="item" style="width:50px; height:50px"></td>
               <td>{{item["name"]}}</td>
               <td>{{item.points}}</td>
-              <td>{{item.leagueRecord.wins}}</td>
-              <td>{{item.leagueRecord.losses}}</td>
+              <td>{{item.wins}}</td>
+              <td>{{item.losses}}</td>
               <td>{{item.img}}</td>
               <td>PTS</td>
               <td>RW</td>

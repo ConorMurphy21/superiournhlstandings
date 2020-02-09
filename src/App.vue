@@ -35,9 +35,9 @@
                     const team = this.records[i].teamRecords[j];
                     team.img = "../assets/" + team.team.name + ".png";
                     team.name = team.team.name;
-                    team.wins = team.leagueRecords.wins;
-                    team.losses = team.leagueRecords.losses;
-                    team.ot = team.leagueRecords.ot;
+                    team.wins = team.leagueRecord.wins;
+                    team.losses = team.leagueRecord.losses;
+                    team.ot = team.leagueRecord.ot;
                   }
                 }
               })
