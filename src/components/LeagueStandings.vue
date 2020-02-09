@@ -13,7 +13,7 @@
               <td v-for="disp in display2" v-bind:key="disp" v-bind:i="disp">{{headerMap[disp]}}</td>
           </tr>
 
-          <tr v-for="item in teamOnlyRecords" v-bind:key="item" v-bind:item="item" class="bg-dark text-white">
+          <tr v-for="item in teamOnlyRecords" v-bind:key="item.name" class="bg-dark text-white">
               <td><img :src="item.img" style="width:50px; height:50px"></td>
               <td>{{item["name"]}}</td>
               <td v-for="it in display2" v-bind:key="it" v-bind:it="it" v-bind:x="item">{{item[it]}}</td>
@@ -28,9 +28,9 @@
     export default {
         name: "LeagueStandings",
         props: {
-            records: [],
-            sortOrder: [],
-            display: []
+            records: Array,
+            sortOrder: Array,
+            display: Array
         },
         data(){
           return{

@@ -15,7 +15,7 @@
         name: "ConferenceStandings",
         components: {LeagueStandings},
         props: {
-            records: []
+            records: Array
         },
         methods: {
             confRecords: function (conf) {
