@@ -1,53 +1,31 @@
 <template>
   <div id="app">
-    <h1>
-    </h1>
-    <standing-pitch system="3-Point-Game" v-bind:records="records">
+    <h7>
+      <inputScores></inputScores>
+    </h7>
 
-    </standing-pitch>
-    <sidebar-menu :menu="menu" width="100px" rtl="false"/>
+    <Standings system="3-Point-Game" v-bind:records="records">
+
+    </Standings>
   </div>
 </template>
 
 <script>
-  import StandingPitch from "./components/StandingPitch";
+  import Standings from './components/Standings.vue';
   import axios from 'axios';
-  import { SidebarMenu } from 'vue-sidebar-menu';
+  import InputScores from "./components/inputScores";
+
+
 
   export default {
     name: 'App',
     components: {
-      StandingPitch,
-      SidebarMenu
+
+      InputScores,
+      Standings
     },
     data(){
       return{
-        menu: [
-          {
-            header: true,
-            title: 'Main Navigation',
-            hiddenOnCollapse: true,
-          },
-          {
-            href: '/',
-            title: 'Dashboard',
-            icon: 'fa fa-user'
-          },
-          {
-            href: '/charts',
-            title: 'Charts',
-            icon: 'fa fa-chart-area',
-            child: [
-              {
-                href: '/charts/sublink',
-                title: 'Sub Link'
-              }
-            ]
-          },
-          {
-
-          }
-        ],
         records: [],
         headMap: ["GP", "W", "L","OT","RW","OW","GA","GF","P"]
       }
