@@ -2,14 +2,9 @@
   <div>
 
       <table class="table table-light table-striped">
-      <tr>
-          <th COLSPAN="17">
-              <h1 style="text-align: center" class="font-weight-bold">NHL Standings</h1>
-          </th>
-      </tr>
 
           <tr class="bg-dark text-white">
-              <td colspan="2">National Hockey League</td>
+              <td colspan="2">{{name}}</td>
               <td v-for="disp in display2" v-bind:key="disp">{{headerMap[disp]}}</td>
           </tr>
 
@@ -29,13 +24,11 @@
         name: "LeagueStandings",
         props: {
             records: Array,
-            sortOrder: Array,
-            display: Array
+            name: Array,
+            display: Array,
         },
         data(){
           return{
-              sortOrder2: ["points", "wins", "regulationWins", "losses"],
-              sortInOrDec2: [0,0,0,1],
               display2: ["gamesPlayed", "points", "wins", "losses", "ot"],
               headerMap: {
                   gamesPlayed: "GP",
