@@ -12,7 +12,7 @@
               <td colspan="2">National Hockey League</td>
           </tr>
 
-          <tr v-for="item in teamOnlyRecords" v-bind:key="item" v-bind:item="item" class="bg-dark text-white">
+          <tr v-for="item in teamOnlyRecords" v-bind:key="item.name" class="bg-dark text-white">
               <td><img :src="item.img" style="width:50px; height:50px"></td>
               <td>{{item["name"]}}</td>
               <td>{{item.points}}</td>
@@ -30,9 +30,9 @@
     export default {
         name: "LeagueStandings",
         props: {
-            records: [],
-            sortOrder: [],
-            display: []
+            records: Array,
+            sortOrder: Array,
+            display: Array
         },
         data(){
           return{

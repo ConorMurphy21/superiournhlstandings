@@ -21,7 +21,7 @@
         name: "DivisionStandings",
         components: {LeagueStandings},
         props: {
-            records: []
+            records: Array
         },
         methods: {
             divRecords: function (div) {
