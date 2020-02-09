@@ -7,7 +7,7 @@
       <b-button variant="secondary" @click="updateVar(2)">Conference</b-button>
       <b-button variant="secondary" @click="updateVar(1)" autofocus>League</b-button>
     </b-btn-group>
-    <league-standings v-if="standingType === 1" v-bind:records="recordRevamp" name="League">
+    <league-standings v-if="standingType === 1" v-bind:records="recordRevamp">
 
     </league-standings>
     <conference-standings v-else-if="standingType === 2" v-bind:records="recordRevamp">
@@ -40,8 +40,8 @@
               val: 2
             },
             {
-              attr: "ot",
-              val: 1
+              attr: "losses",
+              val: 2
             }
           ]
         }

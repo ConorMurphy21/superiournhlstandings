@@ -1,25 +1,19 @@
 <template>
     <div>
-        <league-standings v-bind:records="metropolitanRecords" name="Metropolitan">
-
-        </league-standings>
-        <league-standings v-bind:records="atlanticRecords" name="Atlantic">
-
-        </league-standings>
-        <league-standings v-bind:records="centralRecords" name="Central">
-
-        </league-standings>
-        <league-standings v-bind:records="pacificRecords" name="Pacific">
-
-        </league-standings>
+        <h1 class="font-weight-bold">Eastern Conference</h1>
+        <generic-standings v-bind:records="metropolitanRecords" name="Metropolitan Division"></generic-standings>
+        <generic-standings v-bind:records="atlanticRecords" name="Atlantic Division"></generic-standings>
+        <h1 class="font-weight-bold">Western Conference</h1>
+        <generic-standings v-bind:records="centralRecords" name="Central Division"></generic-standings>
+        <generic-standings v-bind:records="pacificRecords" name="Pacific Division"></generic-standings>
     </div>
 </template>
 
 <script>
-    import LeagueStandings from "./LeagueStandings";
+    import GenericStandings from "./GenericStandings.vue";
     export default {
         name: "DivisionStandings",
-        components: {LeagueStandings},
+        components: {GenericStandings},
         props: {
             records: Array
         },
@@ -59,5 +53,8 @@
 </script>
 
 <style scoped>
-
+    h1{
+        text-align: center;
+        font-size: 60px;
+    }
 </style>
