@@ -1,6 +1,6 @@
 <template>
     <TR>
-        <TD><img src="../../src/assets/boston_bruins.svg.png" width="50px" height="50px"> </TD>
+        <TD><img src="../../public/assets/boston_bruins.svg.png" width="50px" height="50px"> </TD>
             <TD style="padding-top: 23px">{{ LeagueStandings.test[0] }}</TD>
         <TD style="padding-top: 23px">{{ LeagueStandings.test[1] }}</TD>
         <TD style="padding-top: 23px">{{ LeagueStandings.test[2] }}</TD>

@@ -2,18 +2,18 @@
 
   <div>
     <b-btn-group>
-      <b-button variant="secondary" @select="updateVar(0)">Wild Card</b-button>
-      <b-button variant="secondary">Division</b-button>
-      <b-button variant="secondary">Conference</b-button>
-      <b-button variant="secondary" autofocus>League</b-button>
+      <b-button variant="secondary" @click="updateVar(0)">Wild Card</b-button>
+      <b-button variant="secondary" @click="updateVar(3)">Division</b-button>
+      <b-button variant="secondary" @click="updateVar(2)">Conference</b-button>
+      <b-button variant="secondary" @click="updateVar(1)" autofocus>League</b-button>
     </b-btn-group>
-    <league-standings  v-bind:records="records">
+    <league-standings v-if="standingType === 1" v-bind:records="records">
 
     </league-standings>
-    <conference-standings v-bind:records="records">
+    <conference-standings v-else-if="standingType === 2" v-bind:records="records">
 
     </conference-standings>
-    <division-standings v-bind:records="records">
+    <division-standings v-else-if="standingType === 3" v-bind:records="records">
 
     </division-standings>
   </div>
@@ -27,13 +27,18 @@
         name: "Standings",
         props:{
             system: String,
-            records: []
+            records: Array
         },
         components: {DivisionStandings, ConferenceStandings, LeagueStandings},
-        data(){
-            return{
-              standingType: 3
-            }
+        data() {
+          return {
+            standingType: 3
+          }
+        },
+        methods:{
+          updateVar: function(val){
+            this.standingType = val;
+          }
         }
     }
 </script>

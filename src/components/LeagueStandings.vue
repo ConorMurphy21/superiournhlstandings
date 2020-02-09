@@ -10,11 +10,11 @@
 
           <tr class="bg-dark text-white">
               <td colspan="2">National Hockey League</td>
-              <td v-for="disp in display2" v-bind:key="disp" v-bind:i="disp">{{headerMap[disp]}}</td>
+              <td v-for="disp in display2" v-bind:key="disp">{{headerMap[disp]}}</td>
           </tr>
 
-          <tr v-for="item in teamOnlyRecords" v-bind:key="item" v-bind:item="item" class="bg-dark text-white">
-              <td><img :src="item.img" style="width:50px; height:50px"></td>
+          <tr v-for="item in teamOnlyRecords" v-bind:key="item.name" class="bg-dark text-white">
+              <td><img v-bind:src="item.img" style="width:50px; height:50px"></td>
               <td>{{item["name"]}}</td>
               <td v-for="it in display2" v-bind:key="it" v-bind:it="it" v-bind:x="item">{{item[it]}}</td>
           </tr>
@@ -28,9 +28,9 @@
     export default {
         name: "LeagueStandings",
         props: {
-            records: [],
-            sortOrder: [],
-            display: []
+            records: Array,
+            sortOrder: Array,
+            display: Array
         },
         data(){
           return{
@@ -41,7 +41,11 @@
                   wins: "W",
                   losses: "L",
                   ot: "OT",
-                  points: "points"
+                  points: "P",
+                  regulationWins : "RW",
+                  goalsAgainst : "GA",
+                  goalsScored : "GS",
+                  divisionRank : "DR"
               }
           }
         },
@@ -56,6 +60,7 @@
                         teamOnlyRecords.push(this.records[i].teamRecords[j]);
                     }
                 }
+                teamOnlyRecords.sort(function(a,b){return b.points - a.points});
                 return teamOnlyRecords;
             }
         }
