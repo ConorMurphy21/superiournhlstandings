@@ -25,21 +25,48 @@
     import DivisionStandings from "./DivisionStandings";
     export default {
         name: "Standings",
-        props:{
-            system: String,
-            records: Array
-        },
-        components: {DivisionStandings, ConferenceStandings, LeagueStandings},
-        data() {
-          return {
-            standingType: 3
-          }
-        },
         methods:{
           updateVar: function(val){
             this.standingType = val;
-          }
+          },
+      props: {
+        systemName: String,
+        system: Object,
+        records: Array
+      },
+      components: {DivisionStandings, ConferenceStandings, LeagueStandings},
+      data() {
+        return {
+          standingType: 3,
+          system2: [
+            {
+              attr: "wins",
+              val: 2
+            },
+            {
+              attr: "ot",
+              val: 1
+            }
+          ]
         }
+      },
+      computed: {
+        recordRevamp() {
+          let recordRevamp = this.records;
+          for (let i = 0; i < this.records.length; i++) {
+            for (let j = 0; j < this.records[i].teamRecords.length; j++) {
+              let points = 0;
+              for (let k = 0; k < this.system2.length; k++) {
+                let test = this.system2[k].attr;
+                points += (this.system2[k].val) * this.records[i].teamRecords[j][test];
+              }
+              recordRevamp[i].teamRecords[j].points = points;
+            }
+          }
+          return recordRevamp;
+        }
+      }
+    }
     }
 </script>
 

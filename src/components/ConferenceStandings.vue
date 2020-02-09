@@ -33,7 +33,6 @@
             westernRecords() {
                 let conf = "Western";
                 return this.confRecords(conf);
-
             },
             easternRecords(){
                 let conf = "Eastern";
