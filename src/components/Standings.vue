@@ -7,7 +7,10 @@
       <b-button variant="secondary" @click="updateVar(2)">Conference</b-button>
       <b-button variant="secondary" @click="updateVar(1)" autofocus>League</b-button>
     </b-btn-group>
-    <league-standings v-if="standingType === 1" v-bind:records="recordRevamp">
+    <wildcard-standings v-if="standingType === 0" v-bind:records="recordRevamp">
+
+    </wildcard-standings>
+    <league-standings v-if="standingType === 1" v-bind:records="recordRevamp" name="National Hockey League">
 
     </league-standings>
     <conference-standings v-else-if="standingType === 2" v-bind:records="recordRevamp">
@@ -23,6 +26,8 @@
     import LeagueStandings from "@/components/LeagueStandings";
     import ConferenceStandings from "./ConferenceStandings";
     import DivisionStandings from "./DivisionStandings";
+    import WildcardStandings from "./WildcardStandings";
+
     export default {
         name: "Standings",
       props: {
@@ -30,7 +35,7 @@
         system: Object,
         records: Array
       },
-      components: {DivisionStandings, ConferenceStandings, LeagueStandings},
+      components: {WildcardStandings, DivisionStandings, ConferenceStandings, LeagueStandings},
       data() {
         return {
           standingType: 3,
@@ -40,8 +45,8 @@
               val: 2
             },
             {
-              attr: "losses",
-              val: 2
+              attr: "ot",
+              val: 1
             }
           ]
         }
