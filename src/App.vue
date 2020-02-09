@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    <h1>
+    </h1>
     <Standings system="3-Point-Game" v-bind:records="records">
 
     </Standings>
@@ -18,7 +20,8 @@
     },
     data(){
       return{
-        records: []
+        records: [],
+        headMap: ["GP", "W", "L","OT","RW","OW","GA","GF","P"]
       }
     },
     // Fetches posts when the component is created
@@ -26,7 +29,8 @@
       axios.get(`https://statsapi.web.nhl.com/api/v1/standings`)
               .then(response => {
                 // JSON responses are automatically parsed.
-                this.records = response.data.records
+                this.records = response.data.records;
+
               })
               .catch(e => {
                 this.errors.push(e)
