@@ -1,7 +1,9 @@
 <template>
   <div id="app">
-    <h1>
-    </h1>
+    <h7>
+      <inputScores></inputScores>
+    </h7>
+
     <Standings system="3-Point-Game" v-bind:records="records">
 
     </Standings>
@@ -11,11 +13,15 @@
 <script>
   import Standings from './components/Standings.vue';
   import axios from 'axios';
+  import InputScores from "./components/inputScores";
+
 
 
   export default {
     name: 'App',
     components: {
+
+      InputScores,
       Standings
     },
     data(){
