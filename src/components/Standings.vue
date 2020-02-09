@@ -16,6 +16,10 @@
     <division-standings v-else-if="standingType === 3" v-bind:records="records">
 
     </division-standings>
+
+    <inputScores v-else-if="standingType === 4" v-bind:records="records">
+
+    </inputScores>
   </div>
 </template>
 
@@ -23,13 +27,14 @@
     import LeagueStandings from "@/components/LeagueStandings";
     import ConferenceStandings from "./ConferenceStandings";
     import DivisionStandings from "./DivisionStandings";
+    import Input_scores from "./inputScores";
     export default {
         name: "Standings",
         props:{
             system: String,
             records: Array
         },
-        components: {DivisionStandings, ConferenceStandings, LeagueStandings},
+        components: {Input_scores, DivisionStandings, ConferenceStandings, LeagueStandings},
         data() {
           return {
             standingType: 3

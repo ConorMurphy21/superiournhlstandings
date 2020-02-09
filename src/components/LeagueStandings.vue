@@ -1,6 +1,8 @@
 <template>
   <div>
 
+
+
       <table class="table table-light table-striped">
       <tr>
           <th COLSPAN="17">
@@ -23,6 +25,8 @@
 
   </div>
 </template>
+
+
 
 <script>
     export default {
