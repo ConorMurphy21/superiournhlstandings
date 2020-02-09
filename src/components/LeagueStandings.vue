@@ -28,12 +28,12 @@
           </tr>
 
           <tr v-for="item in teamOnlyRecords" v-bind:key="item" v-bind:item="item" class="bg-dark text-white">
-              <td><img src="../assets/washington_capitals.png" style="width:50px; height:50px"></td>
-              <td>{{item.team.name}}</td>
+              <td><img :src="item" style="width:50px; height:50px"></td>
+              <td>{{item["name"]}}</td>
               <td>{{item.points}}</td>
               <td>{{item.leagueRecord.wins}}</td>
               <td>{{item.leagueRecord.losses}}</td>
-              <td>{{}}</td>
+              <td>{{item.img}}</td>
               <td>PTS</td>
               <td>RW</td>
               <td>ROW</td>
@@ -67,6 +67,11 @@
                     }
                 }
                 return teamOnlyRecords;
+            }
+        },
+        method: {
+            impath: function(name){
+                return "../assets/" + name + ".png";
             }
         }
     }

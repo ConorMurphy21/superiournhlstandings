@@ -30,7 +30,16 @@
               .then(response => {
                 // JSON responses are automatically parsed.
                 this.records = response.data.records;
-
+                for(let i = 0;i < this.records.length; i++ ) {
+                  for(let j = 0; j < this.records[i].teamRecords.length; j++) {
+                    const team = this.records[i].teamRecords[j];
+                    team.img = "../assets/" + team.team.name + ".png";
+                    team.name = team.team.name;
+                    team.wins = team.leagueRecords.wins;
+                    team.losses = team.leagueRecords.losses;
+                    team.ot = team.leagueRecords.ot;
+                  }
+                }
               })
               .catch(e => {
                 this.errors.push(e)
