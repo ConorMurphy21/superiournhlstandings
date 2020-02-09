@@ -1,15 +1,15 @@
 <template>
     <div>
-        <league-standings v-bind:records="atlanticRecords">
+        <league-standings v-bind:records="metropolitanRecords" name="Metropolitan">
 
         </league-standings>
-        <league-standings v-bind:records="pacificRecords">
+        <league-standings v-bind:records="atlanticRecords" name="Atlantic">
 
         </league-standings>
-        <league-standings v-bind:records="metropolitanRecords">
+        <league-standings v-bind:records="centralRecords" name="Central">
 
         </league-standings>
-        <league-standings v-bind:records="centralRecords">
+        <league-standings v-bind:records="PacificRecords" name="Pacific">
 
         </league-standings>
     </div>
