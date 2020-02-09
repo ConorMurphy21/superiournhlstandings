@@ -68,11 +68,6 @@
                 }
                 return teamOnlyRecords;
             }
-        },
-        method: {
-            impath: function(name){
-                return "../assets/" + name + ".png";
-            }
         }
     }
 </script>

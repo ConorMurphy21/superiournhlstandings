@@ -10,21 +10,26 @@
     <league-standings  v-bind:records="records">
 
     </league-standings>
-<conference-standings v-bind:records="records">
-</conference-standings>
+    <conference-standings v-bind:records="records">
+
+    </conference-standings>
+    <division-standings v-bind:records="records">
+
+    </division-standings>
   </div>
 </template>
 
 <script>
     import LeagueStandings from "@/components/LeagueStandings";
     import ConferenceStandings from "./ConferenceStandings";
+    import DivisionStandings from "./DivisionStandings";
     export default {
         name: "Standings",
         props:{
             system: String,
             records: []
         },
-        components: {ConferenceStandings, LeagueStandings},
+        components: {DivisionStandings, ConferenceStandings, LeagueStandings},
         data(){
             return{
               standingType: 3
