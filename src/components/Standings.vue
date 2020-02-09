@@ -7,6 +7,9 @@
       <b-button variant="secondary" @click="updateVar(2)">Conference</b-button>
       <b-button variant="secondary" @click="updateVar(1)" autofocus>League</b-button>
     </b-btn-group>
+    <wildcard-standings v-if="standingType === 0" v-bind:records="recordRevamp">
+
+    </wildcard-standings>
     <league-standings v-if="standingType === 1" v-bind:records="recordRevamp" name="National Hockey League">
 
     </league-standings>
@@ -16,9 +19,7 @@
     <division-standings v-else-if="standingType === 3" v-bind:records="recordRevamp">
 
     </division-standings>
-    <wildcard-standings v-else-if="standingType === 0" v-bind:records="recordRevamp">
 
-    </wildcard-standings>
   </div>
 </template>
 
