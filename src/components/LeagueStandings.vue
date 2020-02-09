@@ -41,7 +41,11 @@
                   wins: "W",
                   losses: "L",
                   ot: "OT",
-                  points: "points"
+                  points: "P",
+                  regulationWins : "RW",
+                  goalsAgainst : "GA",
+                  goalsScored : "GS",
+                  divisionRank : "DR"
               }
           }
         },
