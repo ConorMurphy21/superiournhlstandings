@@ -10,15 +10,13 @@
 
           <tr class="bg-dark text-white">
               <td colspan="2">National Hockey League</td>
+              <td v-for="disp in display2" v-bind:key="disp" v-bind:i="disp">{{headerMap[disp]}}</td>
           </tr>
 
           <tr v-for="item in teamOnlyRecords" v-bind:key="item.name" class="bg-dark text-white">
               <td><img :src="item.img" style="width:50px; height:50px"></td>
               <td>{{item["name"]}}</td>
-              <td>{{item.points}}</td>
-              <td>{{item.wins}}</td>
-              <td>{{item.losses}}</td>
-              <td>{{item.ot}}</td>
+              <td v-for="it in display2" v-bind:key="it" v-bind:it="it" v-bind:x="item">{{item[it]}}</td>
           </tr>
 
       </table>
@@ -37,11 +35,13 @@
         data(){
           return{
               sortOrder2: ["points", "wins", "regulationWins"],
-              display2: ["gamesPlayed", "points", "wins", "losses", "overtime"],
+              display2: ["gamesPlayed", "points", "wins", "losses", "ot"],
               headerMap: {
                   gamesPlayed: "GP",
                   wins: "W",
-                  losses: "L"
+                  losses: "L",
+                  ot: "OT",
+                  points: "points"
               }
           }
         },
@@ -58,7 +58,7 @@
                 }
                 return teamOnlyRecords;
             }
-        },
+        }
     }
 </script>
 
