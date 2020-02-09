@@ -3,9 +3,9 @@
   <div>
     <b-btn-group>
       <b-button variant="secondary" @click="updateVar(0)">Wild Card</b-button>
-      <b-button variant="secondary" @click="updateVar(1)">Division</b-button>
+      <b-button variant="secondary" @click="updateVar(3)">Division</b-button>
       <b-button variant="secondary" @click="updateVar(2)">Conference</b-button>
-      <b-button variant="secondary" @click="updateVar(3)" autofocus>League</b-button>
+      <b-button variant="secondary" @click="updateVar(1)" autofocus>League</b-button>
     </b-btn-group>
     <league-standings v-if="standingType === 1" v-bind:records="records">
 
