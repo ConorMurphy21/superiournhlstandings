@@ -34,8 +34,6 @@
         },
         data(){
           return{
-              sortOrder2: ["points", "wins", "regulationWins", "losses"],
-              sortInOrDec2: [0,0,0,1],
               display2: ["gamesPlayed", "points", "wins", "losses", "ot"],
               headerMap: {
                   gamesPlayed: "GP",

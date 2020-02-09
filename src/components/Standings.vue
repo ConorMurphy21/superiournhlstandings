@@ -16,6 +16,9 @@
     <division-standings v-else-if="standingType === 3" v-bind:records="recordRevamp">
 
     </division-standings>
+    <wildcard-standings v-else-if="standingType === 0" v-bind:records="recordRevamp">
+
+    </wildcard-standings>
   </div>
 </template>
 
@@ -23,6 +26,8 @@
     import LeagueStandings from "@/components/LeagueStandings";
     import ConferenceStandings from "./ConferenceStandings";
     import DivisionStandings from "./DivisionStandings";
+    import WildcardStandings from "./WildcardStandings";
+
     export default {
         name: "Standings",
       props: {
@@ -30,7 +35,7 @@
         system: Object,
         records: Array
       },
-      components: {DivisionStandings, ConferenceStandings, LeagueStandings},
+      components: {WildcardStandings, DivisionStandings, ConferenceStandings, LeagueStandings},
       data() {
         return {
           standingType: 3,
