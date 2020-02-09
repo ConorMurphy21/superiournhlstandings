@@ -34,7 +34,6 @@
         },
         data(){
           return{
-              img: "test",
               sortOrder2: ["points", "wins", "regulationWins"],
               display2: ["gamesPlayed", "points", "wins", "losses", "ot"],
               headerMap: {
@@ -42,7 +41,11 @@
                   wins: "W",
                   losses: "L",
                   ot: "OT",
-                  points: "P"
+                  points: "P",
+                  regulationWins : "RW",
+                  goalsAgainst : "GA",
+                  goalsScored : "GS",
+                  divisionRank : "DR"
               }
           }
         },
