@@ -6,7 +6,7 @@
 </template>
 
 <script>
-    import GenericStandings from "@/components/GenericStandings";
+    import GenericStandings from "@/components/standings/GenericStandings";
     export default {
         name: "ConferenceStandings",
         components: {GenericStandings},

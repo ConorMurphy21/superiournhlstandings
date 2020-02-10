@@ -9,7 +9,7 @@
 </template>
 
 <script>
-  import Standings from './components/Standings.vue';
+  import Standings from './components/standings/Standings.vue';
   import axios from 'axios';
   import InputScores from "./components/inputScores";
 
@@ -40,6 +40,7 @@
                     team.wins = team.leagueRecord.wins;
                     team.losses = team.leagueRecord.losses;
                     team.ot = team.leagueRecord.ot;
+                    team.otw = team.wins - team.regulationWins;
                   }
                 }
               })

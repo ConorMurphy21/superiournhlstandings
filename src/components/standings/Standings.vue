@@ -5,7 +5,7 @@
       <b-button variant="secondary" @click="updateVar(0)">Wild Card</b-button>
       <b-button variant="secondary" @click="updateVar(3)">Division</b-button>
       <b-button variant="secondary" @click="updateVar(2)">Conference</b-button>
-      <b-button variant="secondary" @click="updateVar(1)" autofocus>League</b-button>
+      <b-button variant="secondary" @click="updateVar(1)">League</b-button>
     </b-btn-group>
     <wildcard-standings v-if="standingType === 0" v-bind:records="recordRevamp">
     </wildcard-standings>
@@ -19,7 +19,7 @@
 </template>
 
 <script>
-    import LeagueStandings from "@/components/LeagueStandings";
+    import LeagueStandings from "@/components/standings/LeagueStandings";
     import ConferenceStandings from "./ConferenceStandings";
     import DivisionStandings from "./DivisionStandings";
     import WildcardStandings from "./WildcardStandings";
@@ -34,10 +34,14 @@
       components: {WildcardStandings, DivisionStandings, ConferenceStandings, LeagueStandings},
       data() {
         return {
-          standingType: 3,
+          standingType: 1,
           system2: [
             {
-              attr: "wins",
+              attr: "regulationWins",
+              val: 3
+            },
+            {
+              attr: "otw",
               val: 2
             },
             {

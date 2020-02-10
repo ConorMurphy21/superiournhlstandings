@@ -5,7 +5,13 @@
                  striped="true"
                  head-variant="dark"
                  hover="true"
+
+                 responsive="true"
+
         >
+            <template v-slot:cell(index)="data">
+                {{data.index + 1}}
+            </template>
             <template v-slot:cell(image)="data">
                 <img :src="data.item.img">
             </template>
@@ -49,19 +55,20 @@
                 return teamOnlyRecords;
             },
             fields(){
-                let fields = [];
-                let img = {
-                    key: "image",
-                    label: "",
-                    headerTitle: "image",
-                };
-                fields.push(img);
-                let nameField = {
-                    key: "name",
-                    label: this.name,
-                    headerTitle: "name",
-                };
-                fields.push(nameField);
+                let fields = [
+                    {
+                        key: "index",
+                        label:""
+                    },
+                    {
+                        key: "image",
+                        label: ""
+                    },
+                    {
+                        key: "name",
+                        label: this.name
+                    }
+                ];
 
                 for(let i = 0; i < this.display2.length; i++){
                     fields.push({
