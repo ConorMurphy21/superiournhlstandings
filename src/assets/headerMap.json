@@ -1,0 +1,42 @@
+{
+  "gamesPlayed": {
+      "abr": "GP",
+      "order": "asc"
+  },
+  "wins": {
+    "abr": "W",
+    "order": "desc"
+  },
+  "losses": {
+    "abr": "L",
+    "order": "asc"
+  },
+  "ot": {
+    "abr": "OT",
+    "order": "desc"
+  },
+  "otw":{
+    "abr": "OT",
+    "order": "desc"
+  },
+  "points": {
+    "abr": "P",
+    "order": "desc"
+  },
+  "regulationWins": {
+    "abr": "RW",
+    "order": "desc"
+  },
+  "row": {
+    "abr": "ROW",
+    "order": "desc"
+  },
+  "goalsAgainst": {
+    "abr": "GA",
+    "order": "desc"
+  },
+  "goalsScored": {
+    "abr": "GF",
+    "order": "desc"
+  }
+}

@@ -1,10 +1,11 @@
 <template>
   <div id="app">
     <inputScores></inputScores>
-
+    <div id="standings">
     <Standings v-bind:records="records">
 
     </Standings>
+    </div>
   </div>
 </template>
 
@@ -59,5 +60,9 @@
     text-align: center;
     color: #2c3e50;
     margin-top: 60px;
+  }
+  #standings{
+    margin: auto;
+    width: 80%;
   }
 </style>

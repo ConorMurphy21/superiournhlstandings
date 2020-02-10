@@ -5,10 +5,9 @@
                  striped="true"
                  head-variant="dark"
                  hover="true"
-
                  responsive="true"
-
-        >
+                 fixed
+                 small>
             <template v-slot:cell(index)="data">
                 {{data.index + 1}}
             </template>
@@ -20,6 +19,9 @@
 </template>
 
 <script>
+
+
+
     export default {
         name: "GenericStandings",
         props: {
@@ -69,7 +71,6 @@
                         label: this.name
                     }
                 ];
-
                 for(let i = 0; i < this.display2.length; i++){
                     fields.push({
                         key: this.display2[i],
@@ -85,8 +86,7 @@
 
 <style scoped>
     img{
-        width: 50px;
-        height: 50px;
+        height: 32px;
     }
 </style>
 
