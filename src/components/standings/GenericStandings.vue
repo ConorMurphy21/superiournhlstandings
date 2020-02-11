@@ -6,7 +6,6 @@
                  head-variant="dark"
                  hover="true"
                  responsive="true"
-                 fixed
                  small>
             <template v-slot:cell(index)="data">
                 {{data.index + 1}}
@@ -86,7 +85,7 @@
 
 <style scoped>
     img{
-        height: 32px;
+        width: 40px;
     }
 </style>
 
