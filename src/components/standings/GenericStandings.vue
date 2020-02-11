@@ -2,10 +2,11 @@
     <div>
         <b-table :fields="fields"
                  :items="teamOnlyRecords"
-                 striped="true"
                  head-variant="dark"
-                 hover="true"
-                 responsive="true"
+                 responsive="sm"
+                 hover
+                 striped
+                 bordered
                  small>
             <template v-slot:cell(index)="data">
                 {{data.index + 1}}
@@ -19,29 +20,28 @@
 
 <script>
 
-
-
+    import HEADER_MAP from '../../assets/headerMap.json'
     export default {
         name: "GenericStandings",
+        headerMap: HEADER_MAP,
         props: {
-            name: String,
-            records: Array,
-            display: Array
+            name: {
+                String,
+                default: "NHL"
+            },
+            records: {
+                type: Array,
+                required: true
+            },
+            display: Array,
+            sortable: {
+                type: Boolean,
+                default: true
+            }
         },
         data(){
             return{
                 display2: ["gamesPlayed", "points", "wins", "losses", "ot"],
-                headerMap: {
-                    gamesPlayed: "GP",
-                    wins: "W",
-                    losses: "L",
-                    ot: "OT",
-                    points: "P",
-                    regulationWins : "RW",
-                    goalsAgainst : "GA",
-                    goalsScored : "GS",
-                    divisionRank : "DR"
-                }
             }
         },
         computed: {
@@ -73,8 +73,9 @@
                 for(let i = 0; i < this.display2.length; i++){
                     fields.push({
                         key: this.display2[i],
-                        label: this.headerMap[this.display2[i]],
-                        sortable: true
+                        label: this.$options.headerMap[this.display2[i]].abr,
+                        sortDirection: this.$options.headerMap[this.display2[i]].order,
+                        sortable: this.sortable
                     });
                 }
                 return fields;
