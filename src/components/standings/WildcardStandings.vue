@@ -1,36 +1,19 @@
 <template>
     <div>
-        <h1>
-            {{atlanticRecords}}
-        </h1>
-        <league-standings v-bind:records="atlanticRecords">
-
-        </league-standings>
-        <league-standings v-bind:records="metropolitanRecords">
-
-        </league-standings>
-        <league-standings v-bind:records="easternRecords">
-
-        </league-standings>
-
-        <league-standings v-bind:records="pacificRecords">
-
-        </league-standings>
-
-        <league-standings v-bind:records="centralRecords">
-
-        </league-standings>
-        <league-standings v-bind:records="westernRecords">
-
-        </league-standings>
+        <h1 class="font-weight-bold">Eastern Conference</h1>
+        <generic-standings v-bind:records="metropolitanRecords" name="Metropolitan Division"></generic-standings>
+        <generic-standings v-bind:records="atlanticRecords" name="Atlantic Division"></generic-standings>
+        <h1 class="font-weight-bold">Western Conference</h1>
+        <generic-standings v-bind:records="centralRecords" name="Central Division"></generic-standings>
+        <generic-standings v-bind:records="pacificRecords" name="Pacific Division"></generic-standings>
     </div>
 </template>
 
 <script>
-    import LeagueStandings from "./LeagueStandings";
+    import GenericStandings from "./GenericStandings.vue";
     export default {
         name: "WildcardStandings",
-        components: {LeagueStandings},
+        components: {GenericStandings},
         props: {
             records: Array
         },
@@ -39,14 +22,21 @@
                 //Will use this method to sort
                 let wildRecords = [];
                 for (let i = 0; i < this.records.length; i++) {
-                    if(this.records[i].conference.name === cat) {
-                        wildRecords.push(this.records[i]);
-                        continue;
-                    }
+                    //if it finds the division, can break out as there is only one division
                     if(this.records[i].division.name === cat) {
                         wildRecords.push(this.records[i]);
+                        wildRecords.teamRecords.sort(function(a,b){return b.points - a.points});
+                        wildRecords.teamRecords = wildRecords.teamRecords.splice(3);
+                        break;
                     }
-                    wildRecords[i].teamRecords.sort(function(a,b){return b.points - a.points});
+
+                    //if it finds conference, needs to continue as there are two divisions in the conference
+                    if(this.records[i].conference.name === cat) {
+                        wildRecords.push(this.records[i]);
+                        wildRecords[i].teamRecords.sort(function(a,b){return b.points - a.points});
+                        wildRecords.teamRecords = wildRecords.teamRecords.splice(0, 3);
+                        continue;
+                    }
 
                 }
                 return wildRecords;
@@ -69,12 +59,12 @@
             },
             pacificRecords(){
                 let cat = "Pacific";
-                return this.wildRecords(cat).slice(0,3);
+                return this.wildRecords(cat);
             },
 
             centralRecords(){
                 let cat = "Central";
-                return this.wildRecords(cat).slice(0,3);
+                return this.wildRecords(cat);
             },
             westernRecords() {
                 let cat = "Western";
@@ -85,5 +75,8 @@
 </script>
 
 <style scoped>
-
+    h1{
+        text-align: center;
+        font-size: 250%;
+    }
 </style>
