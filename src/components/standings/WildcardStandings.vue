@@ -1,9 +1,11 @@
 <template>
     <div>
         <h1 class="font-weight-bold">Eastern Conference</h1>
+        <generic-standings v-bind:records="easternRecords" name="Eastern Conference"></generic-standings>
         <generic-standings v-bind:records="metropolitanRecords" name="Metropolitan Division"></generic-standings>
         <generic-standings v-bind:records="atlanticRecords" name="Atlantic Division"></generic-standings>
         <h1 class="font-weight-bold">Western Conference</h1>
+        <generic-standings v-bind:records="westernRecords" name="Western Conference"></generic-standings>
         <generic-standings v-bind:records="centralRecords" name="Central Division"></generic-standings>
         <generic-standings v-bind:records="pacificRecords" name="Pacific Division"></generic-standings>
     </div>
@@ -21,20 +23,29 @@
             wildRecords: function (cat) {
                 //Will use this method to sort
                 let wildRecords = [];
+                let teams = [];
                 for (let i = 0; i < this.records.length; i++) {
                     //if it finds the division, can break out as there is only one division
                     if(this.records[i].division.name === cat) {
+                        for(let j = 0; j < this.records[i].teamRecords.length; j++) {
+                            teams.push(this.records[i].teamRecords[j]);
+                        }
                         wildRecords.push(this.records[i]);
-                        wildRecords.teamRecords.sort(function(a,b){return b.points - a.points});
-                        wildRecords.teamRecords = wildRecords.teamRecords.splice(3);
+                        teams.sort(function(a,b){return b.points - a.points});
+                        let team = teams.slice(0, 3);
+                        wildRecords.teamRecords = team;
                         break;
                     }
 
                     //if it finds conference, needs to continue as there are two divisions in the conference
                     if(this.records[i].conference.name === cat) {
+                        for(let j = 0; j < this.records[i].teamRecords.length; j++) {
+                            teams.push(this.records[i].teamRecords[j]);
+                        }
                         wildRecords.push(this.records[i]);
-                        wildRecords[i].teamRecords.sort(function(a,b){return b.points - a.points});
-                        wildRecords.teamRecords = wildRecords.teamRecords.splice(0, 3);
+                        teams.sort(function(a,b){return b.points - a.points});
+                        let team = teams.splice(3, 4);
+                        wildRecords.teamRecords = team;
                         continue;
                     }
 
