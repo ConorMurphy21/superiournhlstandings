@@ -1,9 +1,19 @@
 <template>
     <div>
         <h1 class="font-weight-bold">Eastern Conference</h1>
-        <generic-standings v-bind:records="easternRecords" name="Eastern Conference"></generic-standings>
+        <h1>{{test}}</h1>
+        <generic-standings :records="easternRecords"
+                           :sort-by.sync="sortBy"
+                           :sort-desc.sync="sortDesc"
+                           name="Eastern Conference">
+
+        </generic-standings>
         <h1 class="font-weight-bold">Western Conference</h1>
-        <generic-standings v-bind:records="westernRecords" name="Western Conference"></generic-standings>
+        <generic-standings :records="westernRecords"
+                           :sort-by.sync="sortBy"
+                           :sort-desc.sync="sortDesc"
+                           name="Western Conference">
+        </generic-standings>
     </div>
 </template>
 
@@ -12,6 +22,12 @@
     export default {
         name: "ConferenceStandings",
         components: {GenericStandings},
+        data(){
+            return{
+                sortBy: "points",
+                sortDesc: true
+            }
+        },
         props: {
             records: Array
         },

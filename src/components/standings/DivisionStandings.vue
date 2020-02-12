@@ -1,11 +1,27 @@
 <template>
     <div>
         <h1 class="font-weight-bold">Eastern Conference</h1>
-        <generic-standings v-bind:records="metropolitanRecords" name="Metropolitan Division"></generic-standings>
-        <generic-standings v-bind:records="atlanticRecords" name="Atlantic Division"></generic-standings>
+        <generic-standings :records="metropolitanRecords"
+                           :sort-by.sync="sortBy"
+                           :sort-desc.sync="sortDesc"
+                           name="Metropolitan Division">
+        </generic-standings>
+        <generic-standings :records="atlanticRecords"
+                           :sort-by.sync="sortBy"
+                           :sort-desc.sync="sortDesc"
+                           name="Atlantic Division">
+        </generic-standings>
         <h1 class="font-weight-bold">Western Conference</h1>
-        <generic-standings v-bind:records="centralRecords" name="Central Division"></generic-standings>
-        <generic-standings v-bind:records="pacificRecords" name="Pacific Division"></generic-standings>
+        <generic-standings :records="centralRecords"
+                           :sort-by.sync="sortBy"
+                           :sort-desc.sync="sortDesc"
+                           name="Central Division">
+        </generic-standings>
+        <generic-standings :records="pacificRecords"
+                           :sort-by.sync="sortBy"
+                           :sort-desc.sync="sortDesc"
+                           name="Pacific Division">
+        </generic-standings>
     </div>
 </template>
 
@@ -16,6 +32,12 @@
         components: {GenericStandings},
         props: {
             records: Array
+        },
+        data(){
+            return{
+                sortBy: "points",
+                sortDesc: true
+            }
         },
         methods: {
             divRecords: function (div) {

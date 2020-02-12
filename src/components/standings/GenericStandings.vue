@@ -2,8 +2,13 @@
     <div>
         <b-table :fields="fields"
                  :items="teamOnlyRecords"
+                 :sort-by="sortBy"
+                 @update:sortBy="updateSortBy($event)"
+                 :sort-desc="sortDesc"
+                 @update:sortDesc="updateSortDesc($event)"
                  head-variant="dark"
                  responsive="sm"
+                 fixed
                  hover
                  striped
                  bordered
@@ -37,11 +42,20 @@
             sortable: {
                 type: Boolean,
                 default: true
+            },
+            sortBy: {
+                type: String,
+                default: "points"
+            },
+            sortDesc: {
+                type: Boolean,
+                default: true
             }
         },
         data(){
             return{
                 display2: ["gamesPlayed", "points", "wins", "losses", "ot"],
+                test: "please work"
             }
         },
         computed: {
@@ -79,6 +93,14 @@
                     });
                 }
                 return fields;
+            }
+        },
+        methods:{
+            updateSortBy(newSortBy){
+                this.$emit('update:sortBy',newSortBy);
+            },
+            updateSortDesc(newSortDesc){
+                this.$emit('update:sortDesc',newSortDesc);
             }
         }
     }
