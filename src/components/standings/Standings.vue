@@ -2,19 +2,14 @@
 
   <div>
     <b-btn-group>
-      <b-button variant="secondary" @click="updateVar(0)">Wild Card</b-button>
-      <b-button variant="secondary" @click="updateVar(3)">Division</b-button>
-      <b-button variant="secondary" @click="updateVar(2)">Conference</b-button>
-      <b-button variant="secondary" @click="updateVar(1)">League</b-button>
+      <b-button variant="secondary" @click="updateVar('wildcard-standings')">Wild Card</b-button>
+      <b-button variant="secondary" @click="updateVar('division-standings')">Division</b-button>
+      <b-button variant="secondary" @click="updateVar('conference-standings')">Conference</b-button>
+      <b-button variant="secondary" @click="updateVar('league-standings')">League</b-button>
     </b-btn-group>
-    <wildcard-standings v-if="standingType === 0" v-bind:records="recordRevamp">
-    </wildcard-standings>
-    <league-standings v-if="standingType === 1" v-bind:records="recordRevamp" name="National Hockey League">
-    </league-standings>
-    <conference-standings v-else-if="standingType === 2" v-bind:records="recordRevamp">
-    </conference-standings>
-    <division-standings v-else-if="standingType === 3" v-bind:records="recordRevamp">
-    </division-standings>
+
+    <component v-bind:is="standingType" v-bind:records="recordRevamp"></component>
+
   </div>
 </template>
 
@@ -34,7 +29,7 @@
       components: {WildcardStandings, DivisionStandings, ConferenceStandings, LeagueStandings},
       data() {
         return {
-          standingType: 1,
+          standingType: "league-standings",
           system2: [
             {
               attr: "regulationWins",
