@@ -46,9 +46,9 @@
                     if(this.records[i].division.name === cat) {
                         wildRecords.push(this.records[i]);
                     }
+                    wildRecords[i].teamRecords.sort(function(a,b){return b.points - a.points});
 
                 }
-                wildRecords.sort(function(a,b){return b.points - a.points});
                 return wildRecords;
             }
         },
