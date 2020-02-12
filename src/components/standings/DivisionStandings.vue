@@ -55,6 +55,6 @@
 <style scoped>
     h1{
         text-align: center;
-        font-size: 60px;
+        font-size: 250%;
     }
 </style>

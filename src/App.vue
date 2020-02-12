@@ -1,17 +1,16 @@
 <template>
   <div id="app">
-    <h7>
-      <inputScores></inputScores>
-    </h7>
-
-    <Standings system="3-Point-Game" v-bind:records="records">
+    <inputScores></inputScores>
+    <div id="standings">
+    <Standings v-bind:records="records">
 
     </Standings>
+    </div>
   </div>
 </template>
 
 <script>
-  import Standings from './components/Standings.vue';
+  import Standings from './components/standings/Standings.vue';
   import axios from 'axios';
   import InputScores from "./components/inputScores";
 
@@ -42,6 +41,7 @@
                     team.wins = team.leagueRecord.wins;
                     team.losses = team.leagueRecord.losses;
                     team.ot = team.leagueRecord.ot;
+                    team.otw = team.wins - team.regulationWins;
                   }
                 }
               })
@@ -60,5 +60,9 @@
     text-align: center;
     color: #2c3e50;
     margin-top: 60px;
+  }
+  #standings{
+    margin: auto;
+    width: 80%;
   }
 </style>

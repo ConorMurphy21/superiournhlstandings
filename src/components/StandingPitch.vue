@@ -5,7 +5,7 @@
 </template>
 
 <script>
-    import Standings from "./Standings";
+    import Standings from "./standings/Standings";
     export default {
         name: "StandingPitch",
         components: {Standings},
