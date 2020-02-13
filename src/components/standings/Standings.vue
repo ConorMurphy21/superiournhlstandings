@@ -32,16 +32,12 @@
           standingType: "league-standings",
           system2: [
             {
-              attr: "regulationWins",
-              val: 3
-            },
-            {
-              attr: "otw",
+              attr: "wins",
               val: 2
             },
             {
               attr: "ot",
-              val: 0
+              val: 1
             }
           ]
         }

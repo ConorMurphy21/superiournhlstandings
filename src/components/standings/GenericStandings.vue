@@ -6,6 +6,7 @@
                  @update:sortBy="updateSortBy($event)"
                  :sort-desc="sortDesc"
                  @update:sortDesc="updateSortDesc($event)"
+                 :sort-compare="pointsCompare"
                  head-variant="dark"
                  responsive="sm"
                  fixed
@@ -24,8 +25,8 @@
 </template>
 
 <script>
-
     import HEADER_MAP from '../../assets/headerMap.json'
+    import pc from '../../scripts/PointsCompare.js'
     export default {
         name: "GenericStandings",
         headerMap: HEADER_MAP,
@@ -55,7 +56,7 @@
         data(){
             return{
                 display2: ["gamesPlayed", "points", "wins", "losses", "ot"],
-                test: "please work"
+                pointsCompare: null
             }
         },
         computed: {
@@ -102,6 +103,10 @@
             updateSortDesc(newSortDesc){
                 this.$emit('update:sortDesc',newSortDesc);
             }
+        },
+        created(){
+            this.pointsCompare = pc.pointCompare;
+
         }
     }
 </script>
