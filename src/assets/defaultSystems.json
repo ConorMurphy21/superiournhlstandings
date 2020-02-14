@@ -1,0 +1,62 @@
+{
+  "3pt": {
+    "name": "3 Point Game",
+    "headers": ["points","wins", "otw", "ot", "losses"],
+    "system":[
+      {
+        "attr": "regulationWins",
+        "val": 3
+      },
+      {
+        "attr": "otw",
+        "val": 2
+      },
+      {
+        "attr": "ot",
+        "val": 1
+      }
+    ]
+  },
+  "nhl": {
+    "name": "NHL System",
+    "headers": ["points","wins", "ot", "losses"],
+    "system": [
+      {
+        "attr": "wins",
+        "val": 2
+      },
+      {
+        "attr": "ot",
+        "val": 1
+      }
+    ]
+  },
+  "wta": {
+    "name": "Winner takes all",
+    "headers": ["points","wins","losses"],
+    "system": [
+      {
+        "attr": "wins",
+        "val": 2
+      }
+    ]
+  },
+  "past":{
+    "name": "Pre 2005 NHL",
+    "headers": ["points","wins","ties","losses"],
+    "system": [
+      {
+        "attr": "regulationWins",
+        "val": 2
+      },
+      {
+        "attr": "otw",
+        "val": 1
+      },
+      {
+        "attr": "otl",
+        "val": 1
+      }
+    ]
+  }
+}
