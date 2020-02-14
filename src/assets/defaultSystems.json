@@ -1,6 +1,7 @@
 {
   "3pt": {
     "name": "3 Point Game",
+    "description": "3 point is the best",
     "headers": ["points","wins", "otw", "ot", "losses"],
     "system":[
       {
@@ -19,6 +20,7 @@
   },
   "nhl": {
     "name": "NHL System",
+    "description": "THis is the worst",
     "headers": ["points","wins", "ot", "losses"],
     "system": [
       {
@@ -33,6 +35,7 @@
   },
   "wta": {
     "name": "Winner takes all",
+    "description": "This is fun",
     "headers": ["points","wins","losses"],
     "system": [
       {
@@ -43,6 +46,7 @@
   },
   "past":{
     "name": "Pre 2005 NHL",
+    "description": "Old Version",
     "headers": ["points","wins","ties","losses"],
     "system": [
       {

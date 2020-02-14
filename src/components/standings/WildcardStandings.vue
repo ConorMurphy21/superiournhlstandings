@@ -13,6 +13,7 @@
 
 <script>
     import GenericStandings from "./GenericStandings.vue";
+
     export default {
         name: "WildcardStandings",
         components: {GenericStandings},
@@ -20,35 +21,21 @@
             records: Array
         },
         methods: {
-            wildRecords: function (cat) {
+            wildRecords: function (cat, cat2) {
                 //Will use this method to sort
                 let wildRecords = [];
                 let teams = [];
                 for (let i = 0; i < this.records.length; i++) {
                     //if it finds the division, can break out as there is only one division
-                    if(this.records[i].division.name === cat) {
+                    if(this.records[i][cat2].name === cat) {
                         for(let j = 0; j < this.records[i].teamRecords.length; j++) {
                             teams.push(this.records[i].teamRecords[j]);
                         }
                         wildRecords.push(this.records[i]);
                         teams.sort(function(a,b){return b.points - a.points});
-                        let team = teams.slice(0, 3);
-                        wildRecords.teamRecords = team;
+                        wildRecords.teamRecords = teams.slice(0, 3);
                         break;
                     }
-
-                    //if it finds conference, needs to continue as there are two divisions in the conference
-                    if(this.records[i].conference.name === cat) {
-                        for(let j = 0; j < this.records[i].teamRecords.length; j++) {
-                            teams.push(this.records[i].teamRecords[j]);
-                        }
-                        wildRecords.push(this.records[i]);
-                        teams.sort(function(a,b){return b.points - a.points});
-                        let team = teams.splice(3, 4);
-                        wildRecords.teamRecords = team;
-                        continue;
-                    }
-
                 }
                 return wildRecords;
             }
