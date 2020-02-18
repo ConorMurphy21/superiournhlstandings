@@ -2,15 +2,18 @@
     <div>
         <b-table :fields="fields"
                  :items="teamOnlyRecords"
+                 :sort-by="sortBy"
+                 @update:sortBy="updateSortBy($event)"
+                 :sort-desc="sortDesc"
+                 @update:sortDesc="updateSortDesc($event)"
+                 :sort-compare="pc.pointCompare"
                  head-variant="dark"
                  responsive="sm"
+                 fixed
                  hover
                  striped
                  bordered
                  small>
-            <template v-slot:cell(index)="data">
-                {{data.index + 1}}
-            </template>
             <template v-slot:cell(image)="data">
                 <img :src="data.item.img">
             </template>
@@ -19,8 +22,8 @@
 </template>
 
 <script>
-
     import HEADER_MAP from '../../assets/headerMap.json'
+    import pc from '../../scripts/PointsCompare.js'
     export default {
         name: "GenericStandings",
         headerMap: HEADER_MAP,
@@ -37,11 +40,20 @@
             sortable: {
                 type: Boolean,
                 default: true
+            },
+            sortBy: {
+                type: String,
+                default: "points"
+            },
+            sortDesc: {
+                type: Boolean,
+                default: true
             }
         },
         data(){
             return{
                 display2: ["gamesPlayed", "points", "wins", "losses", "ot"],
+                pc: null
             }
         },
         computed: {
@@ -52,14 +64,24 @@
                         teamOnlyRecords.push(this.records[i].teamRecords[j]);
                     }
                 }
-                teamOnlyRecords.sort(function(a,b){return b.points - a.points});
+                //So we do the tiebreaker first, because the tie breaker is the same regardless of point system
+                teamOnlyRecords.sort(this.pc.tieBreakerCompare);
+                //then we sort with points (this will be variable later)
+                //this works because sort is stable
+                teamOnlyRecords.sort(function (a, b) {
+                    return a.points - b.points;
+                });
+                for(let i = 0; i < teamOnlyRecords.length; i++){
+                    //because we Array sort sorts asc, but higher points rank higher
+                    teamOnlyRecords[i].rank = teamOnlyRecords.length-i;
+                }
                 return teamOnlyRecords;
             },
             fields(){
                 let fields = [
                     {
-                        key: "index",
-                        label:""
+                        key: "rank",
+                        label:"rank"
                     },
                     {
                         key: "image",
@@ -80,6 +102,17 @@
                 }
                 return fields;
             }
+        },
+        methods:{
+            updateSortBy(newSortBy){
+                this.$emit('update:sortBy',newSortBy);
+            },
+            updateSortDesc(newSortDesc){
+                this.$emit('update:sortDesc',newSortDesc);
+            }
+        },
+        created(){
+            this.pc = pc;
         }
     }
 </script>
