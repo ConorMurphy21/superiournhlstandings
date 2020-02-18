@@ -1,7 +1,6 @@
 <template>
     <div>
         <h1 class="font-weight-bold">Eastern Conference</h1>
-        <h1>{{test}}</h1>
         <generic-standings :records="easternRecords"
                            :sort-by.sync="sortBy"
                            :sort-desc.sync="sortDesc"

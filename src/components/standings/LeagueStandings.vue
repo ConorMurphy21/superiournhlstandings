@@ -2,7 +2,6 @@
     <div>
         <h1 class="font-weight-bold">National Hockey League</h1>
         <generic-standings name="National Hockey League" v-bind:records="records">
-
         </generic-standings>
     </div>
 </template>

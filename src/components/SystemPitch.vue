@@ -11,7 +11,7 @@
         components: {Standings},
         props:{
             system: String,
-            records: []
+            records: Array
         }
     }
 </script>
