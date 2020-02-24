@@ -1,13 +1,15 @@
 <template>
-    <Standings system="3-Point-Game" v-bind:records="records">
+    <Standings :system="system" :records="records">
 
     </Standings>
 </template>
 
 <script>
+    import DEFAULT_SYSTEMS from '../assets/defaultSystems.json'
     import Standings from "./standings/Standings";
     export default {
-        name: "StandingPitch",
+        name: "SystemPitch",
+        systems: DEFAULT_SYSTEMS,
         components: {Standings},
         props:{
             system: String,

@@ -2,15 +2,15 @@
   <div id="app">
     <inputScores></inputScores>
     <div id="standings">
-    <Standings v-bind:records="records">
+    <SystemPitch system="tpt" :records="records">
 
-    </Standings>
+    </SystemPitch>
     </div>
   </div>
 </template>
 
 <script>
-  import Standings from './components/standings/Standings.vue';
+  import SystemPitch from './components/SystemPitch.vue';
   import axios from 'axios';
   import InputScores from "./components/inputScores";
 
@@ -20,7 +20,7 @@
     name: 'App',
     components: {
       InputScores,
-      Standings
+      SystemPitch
     },
     data(){
       return{

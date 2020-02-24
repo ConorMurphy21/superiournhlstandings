@@ -1,5 +1,5 @@
 {
-  "3pt": {
+  "tpt": {
     "name": "3 Point Game",
     "description": "3 point is the best",
     "headers": ["points","wins", "otw", "ot", "losses"],
