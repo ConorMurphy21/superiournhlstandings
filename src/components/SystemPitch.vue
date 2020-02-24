@@ -1,5 +1,5 @@
 <template>
-    <Standings :system="system" :records="records">
+    <Standings :system="sysObj" :records="records">
 
     </Standings>
 </template>
@@ -14,6 +14,11 @@
         props:{
             system: String,
             records: Array
+        },
+        computed: {
+            sysObj(){
+                return this.$options.systems[this.system].system;
+            }
         }
     }
 </script>

@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <inputScores></inputScores>
     <div id="standings">
     <SystemPitch system="tpt" :records="records">
 
@@ -12,14 +11,10 @@
 <script>
   import SystemPitch from './components/SystemPitch.vue';
   import axios from 'axios';
-  import InputScores from "./components/inputScores";
-
-
 
   export default {
     name: 'App',
     components: {
-      InputScores,
       SystemPitch
     },
     data(){

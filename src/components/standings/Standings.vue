@@ -23,27 +23,13 @@
     name: "Standings",
     props: {
       systemName: String,
-      system: Object,
+      system: Array,
       records: Array
     },
     components: {WildcardStandings, DivisionStandings, ConferenceStandings, LeagueStandings},
     data() {
       return {
         standingType: "league-standings",
-        system2: [
-          {
-            attr: "regulationWins",
-            val: 3
-          },
-          {
-            attr: "otw",
-            val: 2
-          },
-          {
-            attr: "ot",
-            val: 1
-          }
-        ]
       }
     },
     computed: {
@@ -52,9 +38,9 @@
         for (let i = 0; i < this.records.length; i++) {
           for (let j = 0; j < this.records[i].teamRecords.length; j++) {
             let points = 0;
-            for (let k = 0; k < this.system2.length; k++) {
-              let test = this.system2[k].attr;
-              points += (this.system2[k].val) * this.records[i].teamRecords[j][test];
+            for (let k = 0; k < this.system.length; k++) {
+              let test = this.system[k].attr;
+              points += (this.system[k].val) * this.records[i].teamRecords[j][test];
             }
             recordRevamp[i].teamRecords[j].points = points;
           }

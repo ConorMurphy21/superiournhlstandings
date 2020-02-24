@@ -5,7 +5,6 @@
                            :sort-by.sync="sortBy"
                            :sort-desc.sync="sortDesc"
                            name="Eastern Conference">
-
         </generic-standings>
         <h1 class="font-weight-bold">Western Conference</h1>
         <generic-standings :records="westernRecords"
