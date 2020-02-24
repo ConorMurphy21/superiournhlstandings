@@ -36,7 +36,7 @@
                 type: Array,
                 required: true
             },
-            display: Array,
+            headers: Array,
             sortable: {
                 type: Boolean,
                 default: true
@@ -52,7 +52,6 @@
         },
         data(){
             return{
-                display2: ["gamesPlayed", "points", "wins", "losses", "ot"],
                 pc: null
             }
         },
@@ -92,11 +91,11 @@
                         label: this.name
                     }
                 ];
-                for(let i = 0; i < this.display2.length; i++){
+                for(let i = 0; i < this.headers.length; i++){
                     fields.push({
-                        key: this.display2[i],
-                        label: this.$options.headerMap[this.display2[i]].abr,
-                        sortDirection: this.$options.headerMap[this.display2[i]].order,
+                        key: this.headers[i],
+                        label: this.$options.headerMap[this.headers[i]].abr,
+                        sortDirection: this.$options.headerMap[this.headers[i]].order,
                         sortable: this.sortable
                     });
                 }

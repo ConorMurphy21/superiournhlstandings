@@ -1,7 +1,7 @@
 <template>
     <div>
         <h1 class="font-weight-bold">National Hockey League</h1>
-        <generic-standings name="National Hockey League" v-bind:records="records">
+        <generic-standings name="National Hockey League" :records="records" :headers="headers">
         </generic-standings>
     </div>
 </template>
@@ -13,7 +13,7 @@
         components: {GenericStandings},
         props: {
             records: Array,
-            display: Array
+            headers: Array
         }
     }
 </script>

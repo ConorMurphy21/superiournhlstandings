@@ -8,7 +8,7 @@
       <b-button variant="secondary" @click="updateVar('league-standings')">League</b-button>
     </b-btn-group>
 
-    <component v-bind:is="standingType" v-bind:records="recordRevamp"></component>
+    <component :is="standingType" :records="recordRevamp" :headers="headers"></component>
 
   </div>
 </template>
@@ -22,8 +22,8 @@
   export default {
     name: "Standings",
     props: {
-      systemName: String,
       system: Array,
+      headers: Array,
       records: Array
     },
     components: {WildcardStandings, DivisionStandings, ConferenceStandings, LeagueStandings},

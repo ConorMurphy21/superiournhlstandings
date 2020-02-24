@@ -4,12 +4,14 @@
         <generic-standings :records="easternRecords"
                            :sort-by.sync="sortBy"
                            :sort-desc.sync="sortDesc"
+                           :headers="headers"
                            name="Eastern Conference">
         </generic-standings>
         <h1 class="font-weight-bold">Western Conference</h1>
         <generic-standings :records="westernRecords"
                            :sort-by.sync="sortBy"
                            :sort-desc.sync="sortDesc"
+                           :headers="headers"
                            name="Western Conference">
         </generic-standings>
     </div>
@@ -27,7 +29,8 @@
             }
         },
         props: {
-            records: Array
+            records: Array,
+            headers: Array
         },
         methods: {
             confRecords: function (conf) {

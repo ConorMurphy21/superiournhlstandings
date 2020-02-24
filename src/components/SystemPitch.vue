@@ -1,5 +1,5 @@
 <template>
-    <Standings :system="sysObj" :records="records">
+    <Standings :system="sysObj" :records="records" :headers="sysHeaders">
 
     </Standings>
 </template>
@@ -18,6 +18,9 @@
         computed: {
             sysObj(){
                 return this.$options.systems[this.system].system;
+            },
+            sysHeaders(){
+                return this.$options.systems[this.system].headers;
             }
         }
     }

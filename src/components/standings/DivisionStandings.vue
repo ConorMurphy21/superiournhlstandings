@@ -4,22 +4,26 @@
         <generic-standings :records="metropolitanRecords"
                            :sort-by.sync="sortBy"
                            :sort-desc.sync="sortDesc"
+                           :headers="headers"
                            name="Metropolitan Division">
         </generic-standings>
         <generic-standings :records="atlanticRecords"
                            :sort-by.sync="sortBy"
                            :sort-desc.sync="sortDesc"
+                           :headers="headers"
                            name="Atlantic Division">
         </generic-standings>
         <h1 class="font-weight-bold">Western Conference</h1>
         <generic-standings :records="centralRecords"
                            :sort-by.sync="sortBy"
                            :sort-desc.sync="sortDesc"
+                           :headers="headers"
                            name="Central Division">
         </generic-standings>
         <generic-standings :records="pacificRecords"
                            :sort-by.sync="sortBy"
                            :sort-desc.sync="sortDesc"
+                           :headers="headers"
                            name="Pacific Division">
         </generic-standings>
     </div>
@@ -31,7 +35,8 @@
         name: "DivisionStandings",
         components: {GenericStandings},
         props: {
-            records: Array
+            records: Array,
+            headers: Array
         },
         data(){
             return{

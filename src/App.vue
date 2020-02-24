@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div id="standings">
-    <SystemPitch system="tpt" :records="records">
+    <SystemPitch system="wta" :records="records">
 
     </SystemPitch>
     </div>
