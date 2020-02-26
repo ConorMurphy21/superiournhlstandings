@@ -61,12 +61,12 @@
                 for (let i = 0; i < this.records.length; i++) {
                     if (this.records[i].conference.name === name) {
                         for (let j = 0; j < this.records[i].teamRecords.length; j++) {
-                            if(!divTop.includes(this.records[i].teamRecords[j])){
+                            if(!divTop[j].teamincludes(this.records[i].teamRecords[j])){
                                 teams.push(this.records[i].teamRecords[j]);
                             }
                         }
-                        wildConfRecords.push(this.records[i]);
-                        wildConfRecords[i].teamRecords = teams;
+                        wildConfRecords[0] = this.records[i];
+                        wildConfRecords[0].teamRecords = teams;
                         break;
                     }
                 }
@@ -74,6 +74,7 @@
             },
             divTopThree: function (name) {
                 let onlyTopThree = [];
+                let onlyTopThreeTeams = [];
                 let teams = [];
                 for (let i = 0; i < this.records.length; i++) {
                     if (this.records[i].division.name === name) {
@@ -86,10 +87,9 @@
                            return b.points - a.points;
                        });
 
-                        teams = teams.slice(0, 3);
-
-                        this.records[i].teamRecords = teams;
-                        onlyTopThree.push(this.records[i]);
+                        onlyTopThreeTeams = teams.slice(0, 3);
+                        onlyTopThree[0] = this.records[i];
+                        onlyTopThree[0].teamRecords = onlyTopThreeTeams;
                         break;
 
                     }
@@ -99,24 +99,19 @@
         },
         computed:{
             atlanticRecords() {
-                //return this.records;
                 return this.divTopThree("Atlantic");
             },
             metropolitanRecords() {
-                //return this.records;
                 return this.divTopThree("Metropolitan");
             },
             easternRecords() {
                 return this.records;
-              // return this.wildConfRecords("Eastern", this.metropolitanRecords.teamRecords, this.atlanticRecords.teamRecords);
+               //return this.wildConfRecords("Eastern", this.metropolitanRecords[0].teamRecords, this.atlanticRecords[0].teamRecords);
             },
             centralRecords(){
-               // return this.records;
-
                 return this.divTopThree("Central");
             },
             pacificRecords(){
-               // return this.records;
                 return this.divTopThree("Pacific");
             },
             westernRecords() {
