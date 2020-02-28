@@ -2,7 +2,7 @@
   "tpt": {
     "name": "3 Point Game",
     "description": "3 point is the best",
-    "headers": ["custPoints","regulationWins", "otw", "ot", "losses"],
+    "headers": ["custPoints","custPointPercentage","regulationWins", "otw", "ot", "losses"],
     "system":[
       {
         "attr": "regulationWins",
@@ -21,7 +21,7 @@
   "nhl": {
     "name": "NHL System",
     "description": "THis is the worst",
-    "headers": ["custPoints","wins", "ot", "losses"],
+    "headers": ["custPoints","pointPercentage","wins", "ot", "losses"],
     "system": [
       {
         "attr": "wins",

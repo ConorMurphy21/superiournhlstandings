@@ -37,6 +37,7 @@
                     team.losses = team.leagueRecord.losses;
                     team.ot = team.leagueRecord.ot;
                     team.otw = team.wins - team.regulationWins;
+                    team.pointPercentage = team.points / (2*team.gamesPlayed);
                   }
                 }
               })

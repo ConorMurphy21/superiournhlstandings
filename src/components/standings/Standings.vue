@@ -38,11 +38,17 @@
         for (let i = 0; i < this.records.length; i++) {
           for (let j = 0; j < this.records[i].teamRecords.length; j++) {
             let points = 0;
+            let maxPointGain = this.system[0].val; // assumes each attribute is mutually exclusive
             for (let k = 0; k < this.system.length; k++) {
-              let test = this.system[k].attr;
-              points += (this.system[k].val) * this.records[i].teamRecords[j][test];
+              let attr = this.system[k].attr;
+              points += (this.system[k].val) * this.records[i].teamRecords[j][attr];
+              if(this.system[k].val > maxPointGain){
+                maxPointGain = this.system[k].val;
+              }
             }
             recordRevamp[i].teamRecords[j].custPoints = points;
+            recordRevamp[i].teamRecords[j].custPointPercentage = 
+                    points/(maxPointGain*recordRevamp[i].teamRecords[j].gamesPlayed);
           }
         }
         return recordRevamp;

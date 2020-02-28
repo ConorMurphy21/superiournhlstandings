@@ -16,6 +16,12 @@
             <template v-slot:cell(image)="data">
                 <img :src="data.item.img">
             </template>
+            <template v-slot:cell(custPointPercentage)="data">
+                {{data.item.custPointPercentage.toFixed(3)}}
+            </template>
+            <template v-slot:cell(pointPercentage)="data">
+                {{data.item.custPointPercentage.toFixed(3)}}
+            </template>
         </b-table>
     </div>
 </template>
