@@ -8,8 +8,7 @@
                  @update:sortDesc="updateSortDesc($event)"
                  :sort-compare="pc.pointCompare"
                  head-variant="dark"
-                 responsive="sm"
-                 fixed
+                 responsive="xl"
                  hover
                  striped
                  bordered
