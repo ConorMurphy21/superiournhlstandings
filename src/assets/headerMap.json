@@ -38,5 +38,9 @@
   "goalsScored": {
     "abr": "GF",
     "order": "desc"
+  },
+  "custPoints": {
+    "abr": "P",
+    "order": "desc"
   }
 }

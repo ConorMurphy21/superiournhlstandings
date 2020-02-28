@@ -42,7 +42,7 @@
             },
             sortBy: {
                 type: String,
-                default: "points"
+                default: "custPoints"
             },
             sortDesc: {
                 type: Boolean,
@@ -67,7 +67,7 @@
                 //then we sort with points (this will be variable later)
                 //this works because sort is stable
                 teamOnlyRecords.sort(function (a, b) {
-                    return a.points - b.points;
+                    return a.custPoints - b.custPoints;
                 });
                 for(let i = 0; i < teamOnlyRecords.length; i++){
                     //because we Array sort sorts asc, but higher points rank higher

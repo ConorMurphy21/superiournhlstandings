@@ -24,7 +24,7 @@
         components: {GenericStandings},
         data(){
             return{
-                sortBy: "points",
+                sortBy: "custPoints",
                 sortDesc: true
             }
         },

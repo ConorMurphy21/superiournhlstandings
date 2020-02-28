@@ -42,7 +42,7 @@
               let test = this.system[k].attr;
               points += (this.system[k].val) * this.records[i].teamRecords[j][test];
             }
-            recordRevamp[i].teamRecords[j].points = points;
+            recordRevamp[i].teamRecords[j].custPoints = points;
           }
         }
         return recordRevamp;

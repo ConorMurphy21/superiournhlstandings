@@ -2,7 +2,7 @@
   "tpt": {
     "name": "3 Point Game",
     "description": "3 point is the best",
-    "headers": ["points","regulationWins", "otw", "ot", "losses"],
+    "headers": ["custPoints","regulationWins", "otw", "ot", "losses"],
     "system":[
       {
         "attr": "regulationWins",
@@ -21,7 +21,7 @@
   "nhl": {
     "name": "NHL System",
     "description": "THis is the worst",
-    "headers": ["points","wins", "ot", "losses"],
+    "headers": ["custPoints","wins", "ot", "losses"],
     "system": [
       {
         "attr": "wins",
@@ -36,7 +36,7 @@
   "wta": {
     "name": "Winner takes all",
     "description": "This is fun",
-    "headers": ["points","wins","losses"],
+    "headers": ["custPoints","wins","losses"],
     "system": [
       {
         "attr": "wins",
@@ -47,7 +47,7 @@
   "past":{
     "name": "Pre 2005 NHL",
     "description": "Old Version",
-    "headers": ["points","wins","ties","losses"],
+    "headers": ["custPoints","wins","ties","losses"],
     "system": [
       {
         "attr": "RegulationWins",
