@@ -55,40 +55,48 @@
         methods: {
             wildConfRecords: function (name, divTop1, divTop2) {
                 //Will use this method to sort
-                let wildConfRecords = [];
+                let wildConfRecords = [{
+                     teamRecords:[]
+                     },
+                ];
                 let teams = [];
                 let divTop = divTop1.concat(divTop2);
+                let names = [];
+                for (let i = 0; i < divTop.length; i++){
+                    names[i] = divTop[i].team.name;
+                }
                 for (let i = 0; i < this.records.length; i++) {
+
                     if (this.records[i].conference.name === name) {
                         for (let j = 0; j < this.records[i].teamRecords.length; j++) {
-                            if(!divTop[j].teamincludes(this.records[i].teamRecords[j])){
-                                teams.push(this.records[i].teamRecords[j]);
+                            if(names.includes(this.records[i].teamRecords[j].team.name)){
+                                continue;
                             }
+                            teams.push(this.records[i].teamRecords[j]);
                         }
-                        wildConfRecords[0] = this.records[i];
-                        wildConfRecords[0].teamRecords = teams;
-                        break;
                     }
+                    wildConfRecords[0].teamRecords = teams;
                 }
                 return wildConfRecords;
             },
             divTopThree: function (name) {
-                let onlyTopThree = [];
+                let onlyTopThree = [{
+                    teamRecords:[]
+                }];
                 let onlyTopThreeTeams = [];
-                let teams = [];
+                let teamsInDiv = [];
                 for (let i = 0; i < this.records.length; i++) {
                     if (this.records[i].division.name === name) {
 
                         for (let j = 0; j < this.records[i].teamRecords.length; j++) {
-                            teams.push(this.records[i].teamRecords[j]);
+                            teamsInDiv.push(this.records[i].teamRecords[j]);
                         }
 
-                       teams.sort(function (a, b) {
+                        teamsInDiv.sort(function (a, b) {
                            return b.points - a.points;
                        });
 
-                        onlyTopThreeTeams = teams.slice(0, 3);
-                        onlyTopThree[0] = this.records[i];
+                        onlyTopThreeTeams = teamsInDiv.slice(0, 3);
                         onlyTopThree[0].teamRecords = onlyTopThreeTeams;
                         break;
 
@@ -105,8 +113,7 @@
                 return this.divTopThree("Metropolitan");
             },
             easternRecords() {
-                return this.records;
-               //return this.wildConfRecords("Eastern", this.metropolitanRecords[0].teamRecords, this.atlanticRecords[0].teamRecords);
+               return this.wildConfRecords("Eastern", this.metropolitanRecords[0].teamRecords, this.atlanticRecords[0].teamRecords);
             },
             centralRecords(){
                 return this.divTopThree("Central");
@@ -115,9 +122,7 @@
                 return this.divTopThree("Pacific");
             },
             westernRecords() {
-                return this.records;
-
-                //return this.wildConfRecords("Eastern", this.atlanticRecords.teamRecords, this.metropolitanRecords.teamRecords);
+                return this.wildConfRecords("Western", this.centralRecords[0].teamRecords, this.pacificRecords[0].teamRecords);
             }
         }
     }
