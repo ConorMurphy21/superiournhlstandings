@@ -8,14 +8,19 @@
                  @update:sortDesc="updateSortDesc($event)"
                  :sort-compare="pc.pointCompare"
                  head-variant="dark"
-                 responsive="sm"
-                 fixed
+                 responsive="xl"
                  hover
                  striped
                  bordered
                  small>
             <template v-slot:cell(image)="data">
                 <img :src="data.item.img">
+            </template>
+            <template v-slot:cell(custPointPercentage)="data">
+                {{data.item.custPointPercentage.toFixed(3)}}
+            </template>
+            <template v-slot:cell(pointPercentage)="data">
+                {{data.item.custPointPercentage.toFixed(3)}}
             </template>
         </b-table>
     </div>
@@ -43,7 +48,7 @@
             },
             sortBy: {
                 type: String,
-                default: "points"
+                default: "custPoints"
             },
             sortDesc: {
                 type: Boolean,
@@ -68,7 +73,7 @@
                 //then we sort with points (this will be variable later)
                 //this works because sort is stable
                 teamOnlyRecords.sort(function (a, b) {
-                    return a.points - b.points;
+                    return a.custPoints - b.custPoints;
                 });
                 for(let i = 0; i < teamOnlyRecords.length; i++){
                     //because we Array sort sorts asc, but higher points rank higher
