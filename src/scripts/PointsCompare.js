@@ -7,7 +7,7 @@ export default {
     }
 }
 function pointCompare(aRow, bRow, key){
-    if(key !== "points") return false;
+    if(key !== "points" && key !== "custPoints") return false;
     let cmp = aRow[key] - bRow[key];
     if(cmp !== 0) return cmp;
     return tieBreakerCompare(aRow, bRow);
