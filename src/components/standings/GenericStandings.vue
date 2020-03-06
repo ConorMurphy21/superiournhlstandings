@@ -8,12 +8,13 @@
                  @update:sortDesc="updateSortDesc($event)"
                  :sort-compare="pc.pointCompare"
                  head-variant="dark"
-                 responsive="xl"
+                 responsive
                  hover
                  striped
                  bordered
+                 dark
                  small>
-            <template v-slot:cell(image)="data">
+            <template v-slot:cell(image)="data" >
                 <img :src="data.item.img">
             </template>
             <template v-slot:cell(custPointPercentage)="data">
@@ -35,7 +36,8 @@
         props: {
             name: {
                 String,
-                default: "NHL"
+                default: "NHL",
+                stickyColumn: true
             },
             records: {
                 type: Array,
@@ -93,7 +95,8 @@
                     },
                     {
                         key: "name",
-                        label: this.name
+                        label: this.name,
+                        stickyColumn: true
                     }
                 ];
                 for(let i = 0; i < this.headers.length; i++){
