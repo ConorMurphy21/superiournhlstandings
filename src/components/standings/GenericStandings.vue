@@ -37,7 +37,6 @@
             name: {
                 String,
                 default: "NHL",
-                stickyColumn: true
             },
             records: {
                 type: Array,
