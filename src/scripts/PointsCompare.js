@@ -4,8 +4,12 @@ export default {
     },
     tieBreakerCompare: function(aRow, bRow){
         return tieBreakerCompare(aRow, bRow);
+    },
+    rankCompare: function(aRow, bRec, type){
+        return rankCompare(aRow, bRec, type);
     }
 }
+//compare points with tiebreaker
 function pointCompare(aRow, bRow, key){
     if(key !== "points" && key !== "custPoints") return false;
     let cmp = aRow[key] - bRow[key];
@@ -23,4 +27,15 @@ function tieBreakerCompare(aRow, bRow){
     if (cmp !== 0) return cmp;
     cmp = aRow.wins - bRow.wins;
     return cmp;
+}
+//compare rank
+function rankCompare(rank, nhl, rankType){
+    //cust has only rank defined
+    if(rankType === "wildCard"){
+        return 0;
+    } else if (rankType === "topWildCard"){
+        return 0;
+    } else {
+        return nhl[rankType] - rank;
+    }
 }

@@ -8,11 +8,10 @@
                  @update:sortDesc="updateSortDesc($event)"
                  :sort-compare="pc.pointCompare"
                  head-variant="dark"
-                 responsive
+                 responsive="XL"
                  hover
                  striped
                  bordered
-                 dark
                  small>
             <template v-slot:cell(image)="data" >
                 <img :src="data.item.img">
@@ -42,7 +41,14 @@
                 type: Array,
                 required: true
             },
-            headers: Array,
+            headers: {
+                type: Array,
+                required: true
+            },
+            rankType: {
+                type: String,
+                required: true
+            },
             sortable: {
                 type: Boolean,
                 default: true
@@ -69,16 +75,14 @@
                         teamOnlyRecords.push(this.records[i].teamRecords[j]);
                     }
                 }
-                //So we do the tiebreaker first, because the tie breaker is the same regardless of point system
-                teamOnlyRecords.sort(this.pc.tieBreakerCompare);
-                //then we sort with points (this will be variable later)
-                //this works because sort is stable
                 teamOnlyRecords.sort(function (a, b) {
-                    return a.custPoints - b.custPoints;
+                    // sort descendingly by custPoints
+                    return pc.pointCompare(b, a,"custPoints")
                 });
                 for(let i = 0; i < teamOnlyRecords.length; i++){
                     //because we Array sort sorts asc, but higher points rank higher
-                    teamOnlyRecords[i].rank = teamOnlyRecords.length-i;
+                    teamOnlyRecords[i].rank = i+1;
+                    teamOnlyRecords[i].rankDiff = pc.rankCompare(i+1, teamOnlyRecords[i], this.rankType)
                 }
                 return teamOnlyRecords;
             },
@@ -95,7 +99,6 @@
                     {
                         key: "name",
                         label: this.name,
-                        stickyColumn: true
                     }
                 ];
                 for(let i = 0; i < this.headers.length; i++){

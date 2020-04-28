@@ -5,6 +5,7 @@
                            :sort-by.sync="sortBy"
                            :sort-desc.sync="sortDesc"
                            :headers="headers"
+                           rank-type="conferenceRank"
                            name="Eastern Conference">
         </generic-standings>
         <h1 class="font-weight-bold">Western Conference</h1>
@@ -12,6 +13,7 @@
                            :sort-by.sync="sortBy"
                            :sort-desc.sync="sortDesc"
                            :headers="headers"
+                           rank-type="conferenceRank"
                            name="Western Conference">
         </generic-standings>
     </div>

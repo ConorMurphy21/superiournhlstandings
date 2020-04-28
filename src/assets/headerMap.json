@@ -50,5 +50,9 @@
   "custPointPercentage": {
     "abr": "P%",
     "order": "desc"
+  },
+  "rankDiff": {
+    "abr": "ΔR",
+    "order": "desc"
   }
 }

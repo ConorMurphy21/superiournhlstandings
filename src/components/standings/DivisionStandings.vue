@@ -5,12 +5,14 @@
                            :sort-by.sync="sortBy"
                            :sort-desc.sync="sortDesc"
                            :headers="headers"
+                           rank-type="divisionRank"
                            name="Metropolitan Division">
         </generic-standings>
         <generic-standings :records="atlanticRecords"
                            :sort-by.sync="sortBy"
                            :sort-desc.sync="sortDesc"
                            :headers="headers"
+                           rank-type="divisionRank"
                            name="Atlantic Division">
         </generic-standings>
         <h1 class="font-weight-bold">Western Conference</h1>
@@ -18,12 +20,14 @@
                            :sort-by.sync="sortBy"
                            :sort-desc.sync="sortDesc"
                            :headers="headers"
+                           rank-type="divisionRank"
                            name="Central Division">
         </generic-standings>
         <generic-standings :records="pacificRecords"
                            :sort-by.sync="sortBy"
                            :sort-desc.sync="sortDesc"
                            :headers="headers"
+                           rank-type="divisionRank"
                            name="Pacific Division">
         </generic-standings>
     </div>

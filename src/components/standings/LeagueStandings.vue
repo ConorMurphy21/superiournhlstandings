@@ -1,7 +1,10 @@
 <template>
     <div>
         <h1 class="font-weight-bold">National Hockey League</h1>
-        <generic-standings name="National Hockey League" :records="records" :headers="headers">
+        <generic-standings name="National Hockey League"
+                           :records="records"
+                           :headers="headers"
+                           rank-type="leagueRank">
         </generic-standings>
     </div>
 </template>

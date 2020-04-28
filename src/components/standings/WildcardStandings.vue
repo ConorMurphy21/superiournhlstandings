@@ -4,16 +4,19 @@
         <generic-standings :records="metropolitanRecords"
                            :sortable="false"
                            :headers="headers"
+                           rank-type="topWildCard"
                            name="Metropolitan Division">
         </generic-standings>
         <generic-standings :records="atlanticRecords"
                            :sortable="false"
                            :headers="headers"
+                           rank-type="topWildCard"
                            name="Atlantic Division">
         </generic-standings>
         <generic-standings :records="easternRecords"
                            :sortable="false"
                            :headers="headers"
+                           rank-type="wildCard"
                            name="Eastern Conference">
 
         </generic-standings>
@@ -22,16 +25,19 @@
         <generic-standings :records="centralRecords"
                            :sortable="false"
                            :headers="headers"
+                           rank-type="topWildCard"
                            name="Central Division">
         </generic-standings>
         <generic-standings :records="pacificRecords"
                            :sortable="false"
                            :headers="headers"
+                           rank-type="topWildCard"
                            name="Pacific Division">
         </generic-standings>
         <generic-standings :records="westernRecords"
                            :sortable="false"
                            :headers="headers"
+                           rank-type="wildCard"
                            name="Western Conference">
         </generic-standings>
     </div>
