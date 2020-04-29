@@ -1,6 +1,8 @@
 <template>
     <div>
-        <b-table :fields="fields"
+        <b-table
+                id="standingstable"
+                :fields="fields"
                  :items="teamOnlyRecords"
                  :sort-by="sortBy"
                  @update:sortBy="updateSortBy($event)"
@@ -8,7 +10,6 @@
                  @update:sortDesc="updateSortDesc($event)"
                  :sort-compare="pc.pointCompare"
                  head-variant="dark"
-                 responsive="XL"
                  hover
                  striped
                  bordered
@@ -69,6 +70,7 @@
         },
         computed: {
             teamOnlyRecords() {
+                let variants = ['danger','none','success'];
                 let teamOnlyRecords = [];
                 for(let i = 0; i < this.records.length; i++ ) {
                     for(let j = 0; j < this.records[i].teamRecords.length; j++) {
@@ -82,7 +84,9 @@
                 for(let i = 0; i < teamOnlyRecords.length; i++){
                     //because we Array sort sorts asc, but higher points rank higher
                     teamOnlyRecords[i].rank = i+1;
-                    teamOnlyRecords[i].rankDiff = pc.rankCompare(i+1, teamOnlyRecords[i], this.rankType)
+                    teamOnlyRecords[i].rankDiff = pc.rankCompare(i+1, teamOnlyRecords[i], this.rankType);
+                    let variant = variants[Math.sign(teamOnlyRecords[i].rankDiff) + 1];
+                    teamOnlyRecords[i]._cellVariants = {rankDiff: variant};
                 }
                 return teamOnlyRecords;
             },
@@ -129,6 +133,11 @@
 <style scoped>
     img{
         width: 40px;
+    }
+</style>
+<style>
+    #standingstable td{
+        border: #aaaaaa solid 1px;
     }
 </style>
 

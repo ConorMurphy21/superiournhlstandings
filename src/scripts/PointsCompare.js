@@ -28,13 +28,24 @@ function tieBreakerCompare(aRow, bRow){
     cmp = aRow.wins - bRow.wins;
     return cmp;
 }
-//compare rank
+
 function rankCompare(rank, nhl, rankType){
     //cust has only rank defined
     if(rankType === "wildCard"){
-        return 0;
+        if(nhl.wildCardRank === "0"){
+            return nhl.divisionRank - rank - 3;
+        }else{
+            return nhl.wildCardRank - rank;
+        }
     } else if (rankType === "topWildCard"){
-        return 0;
+        if(nhl.wildCardRank === "0"){
+            return nhl.divisionRank - rank;
+        }else{
+            console.log("div: " + nhl.divisionRank);
+            console.log("wc:" + nhl.wildCardRank);
+            console.log("rank: " + rank);
+            return nhl.wildCardRank + (3-rank);
+        }
     } else {
         return nhl[rankType] - rank;
     }
