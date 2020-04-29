@@ -45,6 +45,7 @@
 
 <script>
     import GenericStandings from "./GenericStandings.vue";
+    import pc from '../../scripts/PointsCompare.js'
     export default {
         name: "WildcardStandings",
         components: {GenericStandings},
@@ -99,7 +100,7 @@
                         }
 
                         teamsInDiv.sort(function (a, b) {
-                           return b.points - a.points;
+                           return pc.pointCompare(b, a,"custPoints");
                        });
 
                         onlyTopThreeTeams = teamsInDiv.slice(0, 3);

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div id="standings">
-    <SystemPitch system="tpt" :records="records">
+    <SystemPitch system="fpw" :records="records">
 
     </SystemPitch>
     </div>
@@ -38,6 +38,10 @@
                     team.ot = team.leagueRecord.ot;
                     team.otw = team.wins - team.regulationWins;
                     team.pointPercentage = team.points / (2*team.gamesPlayed);
+                    team.wildCardRank = Number(team.wildCardRank);
+                    team.divisionRank = Number(team.divisionRank);
+                    team.conferenceRank = Number(team.conferenceRank);
+                    team.leagueRank = Number(team.leagueRank);
                   }
                 }
               })

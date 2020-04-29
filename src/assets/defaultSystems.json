@@ -50,7 +50,7 @@
     "headers": ["custPoints","wins","ties","losses"],
     "system": [
       {
-        "attr": "RegulationWins",
+        "attr": "regulationWins",
         "val": 2
       },
       {
@@ -58,7 +58,26 @@
         "val": 1
       },
       {
-        "attr": "otl",
+        "attr": "ot",
+        "val": 1
+      }
+    ]
+  },
+  "fpw": {
+    "name": "5 point regulation win",
+    "description": "this is sooo fun",
+    "headers": ["custPoints", "custPointPercentage", "rankDiff", "wins", "ot", "losses"],
+    "system": [
+      {
+        "attr": "regulationWins",
+        "val": 5
+      },
+      {
+        "attr": "otw",
+        "val": 2
+      },
+      {
+        "attr": "ot",
         "val": 1
       }
     ]
