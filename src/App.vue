@@ -42,6 +42,7 @@
                     team.divisionRank = Number(team.divisionRank);
                     team.conferenceRank = Number(team.conferenceRank);
                     team.leagueRank = Number(team.leagueRank);
+                    team.ties = team.ot + team.otw
                   }
                 }
               })
@@ -64,5 +65,6 @@
   #standings{
     margin: auto;
     width: 80%;
+    min-width: 800px;
   }
 </style>

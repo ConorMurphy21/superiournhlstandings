@@ -3,17 +3,19 @@
         <b-table
                 id="standingstable"
                 :fields="fields"
-                 :items="teamOnlyRecords"
-                 :sort-by="sortBy"
-                 @update:sortBy="updateSortBy($event)"
-                 :sort-desc="sortDesc"
-                 @update:sortDesc="updateSortDesc($event)"
-                 :sort-compare="pc.pointCompare"
-                 head-variant="dark"
-                 hover
-                 striped
-                 bordered
-                 small>
+                :items="teamOnlyRecords"
+                :sort-by="sortBy"
+                @update:sortBy="updateSortBy($event)"
+                :sort-desc="sortDesc"
+                @update:sortDesc="updateSortDesc($event)"
+                :sort-compare="pc.pointCompare"
+                head-variant="dark"
+                responsive="true"
+                hover
+                striped
+                small
+                no-border-collapse
+        >
             <template v-slot:cell(image)="data" >
                 <img :src="data.item.img">
             </template>
@@ -94,11 +96,11 @@
                 let fields = [
                     {
                         key: "rank",
-                        label:"rank"
+                        label:"rank",
                     },
                     {
                         key: "image",
-                        label: ""
+                        label: "",
                     },
                     {
                         key: "name",
@@ -132,7 +134,7 @@
 
 <style scoped>
     img{
-        width: 40px;
+        height: 32px;
     }
 </style>
 <style>
