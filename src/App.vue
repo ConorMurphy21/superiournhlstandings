@@ -64,7 +64,7 @@
   }
   #standings{
     margin: auto;
-    width: 80%;
+    max-width: 80%;
     min-width: 800px;
   }
 </style>

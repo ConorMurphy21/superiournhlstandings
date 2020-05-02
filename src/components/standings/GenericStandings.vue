@@ -11,14 +11,18 @@
                 :sort-compare="pc.pointCompare"
                 head-variant="dark"
                 responsive="true"
+                fixed
                 hover
                 striped
                 small
                 no-border-collapse
         >
-            <template v-slot:cell(image)="data" >
-                <img :src="data.item.img">
+            <!-- Custom team column with rank, icon, and name--->
+            <template v-slot:cell(teamid)="data">
+                <TeamIdentifier :item="data.item"></TeamIdentifier>
             </template>
+
+            <!-- Decimal  values to 3 digits -->
             <template v-slot:cell(custPointPercentage)="data">
                 {{data.item.custPointPercentage.toFixed(3)}}
             </template>
@@ -32,8 +36,10 @@
 <script>
     import HEADER_MAP from '../../assets/headerMap.json'
     import pc from '../../scripts/PointsCompare.js'
+    import TeamIdentifier from "@/components/standings/TeamIdentifier";
     export default {
         name: "GenericStandings",
+        components: {TeamIdentifier},
         headerMap: HEADER_MAP,
         props: {
             name: {
@@ -93,20 +99,11 @@
                 return teamOnlyRecords;
             },
             fields(){
-                let fields = [
-                    {
-                        key: "rank",
-                        label:"rank",
-                    },
-                    {
-                        key: "image",
-                        label: "",
-                    },
-                    {
-                        key: "name",
+                let fields = [{
+                        key: "teamid",
                         label: this.name,
-                    }
-                ];
+                        thStyle:{width:"300px"}
+                }];
                 for(let i = 0; i < this.headers.length; i++){
                     fields.push({
                         key: this.headers[i],
